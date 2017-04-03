@@ -1,25 +1,49 @@
-//
-//  ViewController.swift
-//  InfixCalculator
-//
-//  Created by Hans van Luttikhuizen on 26/03/2017.
-//  Copyright © 2017 Hans van Luttikhuizen. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var mainDisplay: UILabel!
+    @IBOutlet weak var historyDisplay: UILabel!
+    @IBOutlet weak var backspaceUndoButton: BorderedButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    private var userIsTyping = false
+    private var brain = CalculatorBrain()
+
+    @IBAction func appendDigit(_ sender: UIButton) {
+        if let digit = sender.currentTitle, let text = mainDisplay.text {
+            if userIsTyping {
+                mainDisplay.text = text + digit
+            } else {
+                mainDisplay.text = digit
+                userIsTyping = true
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func operate(_ sender: UIButton) {
+        if userIsTyping{
+            brain.setOperand(displayValue)
+            userIsTyping = false
+        }
+
+        if let symbol = sender.currentTitle {
+            brain.performOperation(symbol)
+        }
+
+        if let result = brain.result {
+            displayValue = result
+        }
     }
 
-
+    var displayValue: Double {
+        get {
+            if let mainDisplayText = mainDisplay.text, let newValue = Double(mainDisplayText) {
+                return newValue
+            } else {
+                return 0.0
+            }
+        }
+        set {
+            mainDisplay.text = String(newValue)
+        }
+    }
 }
-
