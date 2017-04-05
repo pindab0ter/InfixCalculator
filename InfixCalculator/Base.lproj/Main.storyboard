@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F43c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gOQ-M2-Q7n">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,403 +21,296 @@
                         <viewControllerLayoutGuide type="bottom" id="QCr-kh-Vhc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HWO-Pe-68p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FP3-Cm-krC" userLabel="Buttons">
+                                <rect key="frame" x="0.0" y="248" width="320" height="320"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-T2-sWy" userLabel="First Row">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="1" placeholderIntrinsicHeight="infinite" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXT-uJ-yX5" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="→M">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="1" placeholderIntrinsicHeight="infinite" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk3-Pl-loj" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="M">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="1" placeholderIntrinsicHeight="infinite" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-Vk-MED" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="C">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="2" placeholderIntrinsicHeight="infinite" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdx-Dn-IpY" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="192" y="0.0" width="128" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="←">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OdE-bm-i6S" userLabel="Second Row">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-p9-ztM" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="7"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="y5k-xd-DTy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D39-gn-nQq" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="8"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="WOt-VW-9Ke"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-aT-JRY" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="9"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="3qw-rG-4pL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrZ-wL-8xQ" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="192" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="×">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="bN7-Jr-boB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7K-nK-evn" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="256" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="sin">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="sqg-xt-ajy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ur4-EF-4rd" userLabel="Third Row">
+                                        <rect key="frame" x="0.0" y="128" width="320" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJW-gr-NZw" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="4"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="OSt-1E-ZRn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-Nu-vrV" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="0.95283776519999996" green="0.95300072430000005" blue="0.95282751320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="5"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="y5W-Xx-yQl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaD-wJ-xg8" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="6"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="Egq-e1-Nf4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU3-A8-qy1" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="192" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="÷">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="evD-Hr-rFc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bna-aD-6hO" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="256" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="cos">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="yz8-2z-YTo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lc6-8x-HV3" userLabel="Fourth Row">
+                                        <rect key="frame" x="0.0" y="192" width="320" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbr-5z-9Ky" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="1"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="yf1-wU-ZpK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSb-yk-696" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="2"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="Znf-Fu-NiK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38z-am-pbw" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="3"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="aIg-I7-uSa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0b5-gn-875" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="192" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="HC3-h9-D3h"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtR-Gt-O1Y" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="256" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="π">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="h7g-eI-z2R"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uwS-RX-cW4" userLabel="Fifth Row">
+                                        <rect key="frame" x="0.0" y="256" width="320" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2o-99-ZKd" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="."/>
+                                                <connections>
+                                                    <action selector="appendPeriod" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="9pq-bc-n0l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3C-fA-4lI" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="0"/>
+                                                <connections>
+                                                    <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="RHx-G3-maY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UY-hN-4jZ" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="128" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="="/>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="T9U-Gk-JoJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F9-5M-yTq" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="192" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="−">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="s1m-zP-Nsj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOV-MM-P6A" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
+                                                <rect key="frame" x="256" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                <state key="normal" title="√">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="dz7-ba-EKA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FP3-Cm-krC" secondAttribute="height" multiplier="1:1" id="Qlm-cd-7bt"/>
+                                </constraints>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQo-VA-YTa">
-                                <rect key="frame" x="4" y="187" width="367" height="67"/>
+                                <rect key="frame" x="8" y="183" width="304" height="57"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsA-yL-5Uf">
-                                <rect key="frame" x="4" y="254" width="367" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6N-Uj-F19" userLabel="Function buttons">
-                                <rect key="frame" x="0.0" y="292" width="375" height="75"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXT-uJ-yX5" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="→M">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk3-Pl-loj" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="M">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-Vk-MED" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="150" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="C">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdx-Dn-IpY" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="225" y="0.0" width="150" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="←">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="tdx-Dn-IpY" firstAttribute="leading" secondItem="EUM-Vk-MED" secondAttribute="trailing" id="3oF-Sh-VLV"/>
-                                    <constraint firstItem="bk3-Pl-loj" firstAttribute="top" secondItem="L6N-Uj-F19" secondAttribute="top" id="4m3-if-vsA"/>
-                                    <constraint firstAttribute="bottom" secondItem="bk3-Pl-loj" secondAttribute="bottom" id="7zb-BF-8xw"/>
-                                    <constraint firstItem="mXT-uJ-yX5" firstAttribute="leading" secondItem="L6N-Uj-F19" secondAttribute="leading" id="8YV-wE-A82"/>
-                                    <constraint firstItem="tdx-Dn-IpY" firstAttribute="top" secondItem="L6N-Uj-F19" secondAttribute="top" id="8kV-o8-l8t"/>
-                                    <constraint firstAttribute="bottom" secondItem="tdx-Dn-IpY" secondAttribute="bottom" id="Caz-Ff-MHY"/>
-                                    <constraint firstItem="EUM-Vk-MED" firstAttribute="leading" secondItem="bk3-Pl-loj" secondAttribute="trailing" id="F5o-vo-Ziy"/>
-                                    <constraint firstItem="mXT-uJ-yX5" firstAttribute="top" secondItem="L6N-Uj-F19" secondAttribute="top" id="ISz-ci-x1F"/>
-                                    <constraint firstItem="EUM-Vk-MED" firstAttribute="height" secondItem="mXT-uJ-yX5" secondAttribute="height" id="MN6-cf-TzW"/>
-                                    <constraint firstItem="EUM-Vk-MED" firstAttribute="width" secondItem="mXT-uJ-yX5" secondAttribute="width" id="Pba-gA-m5Y"/>
-                                    <constraint firstItem="tdx-Dn-IpY" firstAttribute="width" secondItem="mXT-uJ-yX5" secondAttribute="width" multiplier="2" id="Vix-9E-JGE"/>
-                                    <constraint firstAttribute="trailing" secondItem="tdx-Dn-IpY" secondAttribute="trailing" id="W2d-rD-PFT"/>
-                                    <constraint firstAttribute="width" secondItem="L6N-Uj-F19" secondAttribute="height" multiplier="5:1" id="XfZ-Tf-8H1"/>
-                                    <constraint firstItem="EUM-Vk-MED" firstAttribute="top" secondItem="L6N-Uj-F19" secondAttribute="top" id="aqu-ZS-eRG"/>
-                                    <constraint firstAttribute="bottom" secondItem="mXT-uJ-yX5" secondAttribute="bottom" id="ehQ-Jc-KjE"/>
-                                    <constraint firstAttribute="bottom" secondItem="EUM-Vk-MED" secondAttribute="bottom" id="glA-xS-Bwf"/>
-                                    <constraint firstItem="bk3-Pl-loj" firstAttribute="width" secondItem="mXT-uJ-yX5" secondAttribute="width" id="gqQ-R8-75E"/>
-                                    <constraint firstItem="bk3-Pl-loj" firstAttribute="leading" secondItem="mXT-uJ-yX5" secondAttribute="trailing" id="lYI-Nb-orT"/>
-                                    <constraint firstItem="bk3-Pl-loj" firstAttribute="height" secondItem="mXT-uJ-yX5" secondAttribute="height" id="lv4-UB-rNd"/>
-                                    <constraint firstItem="EUM-Vk-MED" firstAttribute="width" secondItem="mXT-uJ-yX5" secondAttribute="width" id="w95-RV-RR5"/>
-                                    <constraint firstItem="tdx-Dn-IpY" firstAttribute="height" secondItem="mXT-uJ-yX5" secondAttribute="height" id="xvI-kO-T2J"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv8-JA-y2u" userLabel="Number pad">
-                                <rect key="frame" x="0.0" y="367" width="375" height="300"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbr-5z-9Ky" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="150" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="1"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="yf1-wU-ZpK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSb-yk-696" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="150" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="2"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="Znf-Fu-NiK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38z-am-pbw" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="150" y="150" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="3"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="aIg-I7-uSa"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJW-gr-NZw" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="75" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="4"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="OSt-1E-ZRn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-Nu-vrV" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="75" width="75" height="75"/>
-                                        <color key="backgroundColor" red="0.95283776519999996" green="0.95300072430000005" blue="0.95282751320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="5"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="y5W-Xx-yQl"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaD-wJ-xg8" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="150" y="75" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="6"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="Egq-e1-Nf4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-p9-ztM" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="7"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="y5k-xd-DTy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D39-gn-nQq" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="8"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="WOt-VW-9Ke"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-aT-JRY" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="150" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="9"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="3qw-rG-4pL"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3C-fA-4lI" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="225" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="0"/>
-                                        <connections>
-                                            <action selector="appendDigit:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="RHx-G3-maY"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2o-99-ZKd" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="225" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="."/>
-                                        <connections>
-                                            <action selector="appendPeriod" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="9pq-bc-n0l"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UY-hN-4jZ" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="150" y="225" width="75" height="75"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="="/>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="T9U-Gk-JoJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrZ-wL-8xQ" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="225" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="×">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="bN7-Jr-boB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7K-nK-evn" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="300" y="0.0" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="sin">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="sqg-xt-ajy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU3-A8-qy1" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="225" y="75" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="÷">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="evD-Hr-rFc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bna-aD-6hO" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="300" y="75" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="cos">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="yz8-2z-YTo"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0b5-gn-875" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="225" y="150" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="HC3-h9-D3h"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtR-Gt-O1Y" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="300" y="150" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="π">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="h7g-eI-z2R"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F9-5M-yTq" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="225" y="225" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="−">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="s1m-zP-Nsj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOV-MM-P6A" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
-                                        <rect key="frame" x="300" y="225" width="75" height="75"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
-                                        <state key="normal" title="√">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="operate:" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="dz7-ba-EKA"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="aU3-A8-qy1" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="07A-8S-8Ag"/>
-                                    <constraint firstItem="LJW-gr-NZw" firstAttribute="top" secondItem="pR4-p9-ztM" secondAttribute="bottom" id="14w-8u-wLt"/>
-                                    <constraint firstItem="cgK-aT-JRY" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="1Tc-jZ-u04"/>
-                                    <constraint firstAttribute="bottom" secondItem="o2o-99-ZKd" secondAttribute="bottom" id="2YI-37-nC8"/>
-                                    <constraint firstItem="OtR-Gt-O1Y" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="3GF-ck-WtV"/>
-                                    <constraint firstItem="yrZ-wL-8xQ" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="3dn-w2-vXT"/>
-                                    <constraint firstItem="pR4-p9-ztM" firstAttribute="top" secondItem="Hv8-JA-y2u" secondAttribute="top" id="3lt-0z-h6e"/>
-                                    <constraint firstItem="8F9-5M-yTq" firstAttribute="top" secondItem="0b5-gn-875" secondAttribute="bottom" id="40I-pp-iTe"/>
-                                    <constraint firstItem="pR4-p9-ztM" firstAttribute="leading" secondItem="Hv8-JA-y2u" secondAttribute="leading" id="4Fg-ob-Bxd"/>
-                                    <constraint firstItem="MSb-yk-696" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="4xo-Yh-rXG"/>
-                                    <constraint firstAttribute="trailing" secondItem="W7K-nK-evn" secondAttribute="trailing" id="6Hx-Wv-oP3"/>
-                                    <constraint firstItem="OtR-Gt-O1Y" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="B8x-ga-qEe"/>
-                                    <constraint firstItem="J3C-fA-4lI" firstAttribute="leading" secondItem="o2o-99-ZKd" secondAttribute="trailing" id="Bbe-ms-ZBn"/>
-                                    <constraint firstAttribute="bottom" secondItem="3UY-hN-4jZ" secondAttribute="bottom" id="Bqj-kx-Hcn"/>
-                                    <constraint firstItem="cgK-aT-JRY" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="BsI-tD-EBx"/>
-                                    <constraint firstItem="8F9-5M-yTq" firstAttribute="leading" secondItem="3UY-hN-4jZ" secondAttribute="trailing" id="D5T-jZ-ygg"/>
-                                    <constraint firstItem="o2o-99-ZKd" firstAttribute="top" secondItem="wbr-5z-9Ky" secondAttribute="bottom" id="DA4-ME-OqI"/>
-                                    <constraint firstItem="38z-am-pbw" firstAttribute="top" secondItem="qaD-wJ-xg8" secondAttribute="bottom" id="EdL-Dy-ka7"/>
-                                    <constraint firstAttribute="trailing" secondItem="OtR-Gt-O1Y" secondAttribute="trailing" id="Esj-tH-atA"/>
-                                    <constraint firstItem="0b5-gn-875" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="H81-Ab-6nb"/>
-                                    <constraint firstItem="qaD-wJ-xg8" firstAttribute="top" secondItem="cgK-aT-JRY" secondAttribute="bottom" id="H9j-eF-d8E"/>
-                                    <constraint firstItem="cgK-aT-JRY" firstAttribute="leading" secondItem="D39-gn-nQq" secondAttribute="trailing" id="Hr8-wX-iob"/>
-                                    <constraint firstItem="vXz-Nu-vrV" firstAttribute="leading" secondItem="LJW-gr-NZw" secondAttribute="trailing" id="HrB-oV-js1"/>
-                                    <constraint firstItem="W7K-nK-evn" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="I1W-F2-KEa"/>
-                                    <constraint firstItem="8F9-5M-yTq" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="Jqd-RG-9E8"/>
-                                    <constraint firstItem="zOV-MM-P6A" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="KyE-br-ElU"/>
-                                    <constraint firstItem="LJW-gr-NZw" firstAttribute="leading" secondItem="Hv8-JA-y2u" secondAttribute="leading" id="Lh0-Zh-U63"/>
-                                    <constraint firstItem="3UY-hN-4jZ" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="N6w-Aq-2W5"/>
-                                    <constraint firstItem="o2o-99-ZKd" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="Np9-by-Mhg"/>
-                                    <constraint firstItem="yrZ-wL-8xQ" firstAttribute="top" secondItem="Hv8-JA-y2u" secondAttribute="top" id="OCj-L6-SBN"/>
-                                    <constraint firstItem="OtR-Gt-O1Y" firstAttribute="leading" secondItem="0b5-gn-875" secondAttribute="trailing" id="OOV-PC-e7O"/>
-                                    <constraint firstItem="MSb-yk-696" firstAttribute="leading" secondItem="wbr-5z-9Ky" secondAttribute="trailing" id="OkY-ql-QAv"/>
-                                    <constraint firstItem="LJW-gr-NZw" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="PX3-oC-AFG"/>
-                                    <constraint firstItem="aU3-A8-qy1" firstAttribute="top" secondItem="yrZ-wL-8xQ" secondAttribute="bottom" id="PsR-jD-IFe"/>
-                                    <constraint firstItem="Bna-aD-6hO" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="Pv3-Q4-w9u"/>
-                                    <constraint firstItem="J3C-fA-4lI" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="Pyv-T5-Ana"/>
-                                    <constraint firstItem="3UY-hN-4jZ" firstAttribute="leading" secondItem="J3C-fA-4lI" secondAttribute="trailing" id="Q84-HM-lzk"/>
-                                    <constraint firstItem="Bna-aD-6hO" firstAttribute="top" secondItem="W7K-nK-evn" secondAttribute="bottom" id="Q9F-FU-5bh"/>
-                                    <constraint firstItem="Bna-aD-6hO" firstAttribute="leading" secondItem="aU3-A8-qy1" secondAttribute="trailing" id="SQJ-Xc-kes"/>
-                                    <constraint firstItem="qaD-wJ-xg8" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="SWa-YS-dcj"/>
-                                    <constraint firstItem="38z-am-pbw" firstAttribute="leading" secondItem="MSb-yk-696" secondAttribute="trailing" id="SbT-iH-bLn"/>
-                                    <constraint firstItem="J3C-fA-4lI" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="SgT-bN-SW6"/>
-                                    <constraint firstItem="D39-gn-nQq" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="TxR-tB-FIy"/>
-                                    <constraint firstAttribute="width" secondItem="Hv8-JA-y2u" secondAttribute="height" multiplier="5:4" id="UmG-uJ-igr"/>
-                                    <constraint firstItem="o2o-99-ZKd" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="VFN-hZ-NjC"/>
-                                    <constraint firstItem="D39-gn-nQq" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="VbP-Or-0TT"/>
-                                    <constraint firstItem="zOV-MM-P6A" firstAttribute="leading" secondItem="8F9-5M-yTq" secondAttribute="trailing" id="VkG-I1-zrx"/>
-                                    <constraint firstItem="aU3-A8-qy1" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="XXi-Pg-Qch"/>
-                                    <constraint firstItem="W7K-nK-evn" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="Yeo-6p-dPR"/>
-                                    <constraint firstItem="zOV-MM-P6A" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="Yhk-ul-1PU"/>
-                                    <constraint firstItem="OtR-Gt-O1Y" firstAttribute="top" secondItem="Bna-aD-6hO" secondAttribute="bottom" id="Z1A-6F-nTR"/>
-                                    <constraint firstItem="0b5-gn-875" firstAttribute="top" secondItem="aU3-A8-qy1" secondAttribute="bottom" id="ZqO-FZ-Ibd"/>
-                                    <constraint firstAttribute="bottom" secondItem="8F9-5M-yTq" secondAttribute="bottom" id="aYU-eM-KUe"/>
-                                    <constraint firstItem="yrZ-wL-8xQ" firstAttribute="leading" secondItem="cgK-aT-JRY" secondAttribute="trailing" id="c8H-EO-Kje"/>
-                                    <constraint firstItem="qaD-wJ-xg8" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="ckQ-d0-dhi"/>
-                                    <constraint firstItem="qaD-wJ-xg8" firstAttribute="leading" secondItem="vXz-Nu-vrV" secondAttribute="trailing" id="coi-JE-Ai2"/>
-                                    <constraint firstItem="vXz-Nu-vrV" firstAttribute="top" secondItem="D39-gn-nQq" secondAttribute="bottom" id="cue-gL-e8S"/>
-                                    <constraint firstItem="3UY-hN-4jZ" firstAttribute="top" secondItem="38z-am-pbw" secondAttribute="bottom" id="dOP-uH-FsE"/>
-                                    <constraint firstItem="3UY-hN-4jZ" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="dPR-1T-ayJ"/>
-                                    <constraint firstItem="MSb-yk-696" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="dea-6c-ppp"/>
-                                    <constraint firstItem="38z-am-pbw" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="eo9-0U-wcp"/>
-                                    <constraint firstItem="vXz-Nu-vrV" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="f6j-AO-c5O"/>
-                                    <constraint firstItem="LJW-gr-NZw" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="fI9-LS-zr1"/>
-                                    <constraint firstItem="0b5-gn-875" firstAttribute="leading" secondItem="38z-am-pbw" secondAttribute="trailing" id="gkk-i9-Px7"/>
-                                    <constraint firstAttribute="bottom" secondItem="J3C-fA-4lI" secondAttribute="bottom" id="hfS-XH-PEb"/>
-                                    <constraint firstAttribute="trailing" secondItem="zOV-MM-P6A" secondAttribute="trailing" id="hhh-pV-oU8"/>
-                                    <constraint firstItem="zOV-MM-P6A" firstAttribute="top" secondItem="OtR-Gt-O1Y" secondAttribute="bottom" id="hut-WN-aMf"/>
-                                    <constraint firstItem="D39-gn-nQq" firstAttribute="top" secondItem="Hv8-JA-y2u" secondAttribute="top" id="hvB-Vp-Ogd"/>
-                                    <constraint firstItem="D39-gn-nQq" firstAttribute="leading" secondItem="pR4-p9-ztM" secondAttribute="trailing" id="jH3-CU-QVh"/>
-                                    <constraint firstItem="wbr-5z-9Ky" firstAttribute="top" secondItem="LJW-gr-NZw" secondAttribute="bottom" id="jeZ-Ca-KPQ"/>
-                                    <constraint firstItem="8F9-5M-yTq" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="jkv-B4-Zkx"/>
-                                    <constraint firstItem="W7K-nK-evn" firstAttribute="top" secondItem="Hv8-JA-y2u" secondAttribute="top" id="k7b-qW-Qgl"/>
-                                    <constraint firstItem="38z-am-pbw" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="kkM-go-w6E"/>
-                                    <constraint firstItem="wbr-5z-9Ky" firstAttribute="leading" secondItem="Hv8-JA-y2u" secondAttribute="leading" id="kzQ-30-aJW"/>
-                                    <constraint firstItem="yrZ-wL-8xQ" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="mue-Uz-tGs"/>
-                                    <constraint firstAttribute="trailing" secondItem="Bna-aD-6hO" secondAttribute="trailing" id="nTY-In-ut8"/>
-                                    <constraint firstItem="Bna-aD-6hO" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="r3Y-3M-6vo"/>
-                                    <constraint firstAttribute="bottom" secondItem="zOV-MM-P6A" secondAttribute="bottom" id="r9c-Cp-hZa"/>
-                                    <constraint firstItem="cgK-aT-JRY" firstAttribute="top" secondItem="Hv8-JA-y2u" secondAttribute="top" id="sIJ-xt-DDS"/>
-                                    <constraint firstItem="vXz-Nu-vrV" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="tUE-72-kUQ"/>
-                                    <constraint firstItem="wbr-5z-9Ky" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="u6v-KU-2pt"/>
-                                    <constraint firstItem="0b5-gn-875" firstAttribute="height" secondItem="pR4-p9-ztM" secondAttribute="height" id="vru-FS-pcC"/>
-                                    <constraint firstItem="o2o-99-ZKd" firstAttribute="leading" secondItem="Hv8-JA-y2u" secondAttribute="leading" id="xsC-54-hl7"/>
-                                    <constraint firstItem="wbr-5z-9Ky" firstAttribute="width" secondItem="pR4-p9-ztM" secondAttribute="width" id="y8h-il-RgA"/>
-                                    <constraint firstItem="J3C-fA-4lI" firstAttribute="top" secondItem="MSb-yk-696" secondAttribute="bottom" id="z26-Aa-osq"/>
-                                    <constraint firstItem="W7K-nK-evn" firstAttribute="leading" secondItem="yrZ-wL-8xQ" secondAttribute="trailing" id="z69-4u-5qf"/>
-                                    <constraint firstItem="MSb-yk-696" firstAttribute="top" secondItem="vXz-Nu-vrV" secondAttribute="bottom" id="z9v-et-kxq"/>
-                                    <constraint firstItem="aU3-A8-qy1" firstAttribute="leading" secondItem="qaD-wJ-xg8" secondAttribute="trailing" id="zDX-1F-N8I"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FsA-yL-5Uf" firstAttribute="top" secondItem="hQo-VA-YTa" secondAttribute="bottom" id="5d3-wB-Uhq"/>
-                            <constraint firstAttribute="leading" secondItem="hQo-VA-YTa" secondAttribute="leading" constant="-4" id="6l4-ai-DpP"/>
-                            <constraint firstItem="QCr-kh-Vhc" firstAttribute="top" secondItem="Hv8-JA-y2u" secondAttribute="bottom" id="8CX-mO-YcB"/>
-                            <constraint firstItem="L6N-Uj-F19" firstAttribute="leading" secondItem="HWO-Pe-68p" secondAttribute="leading" id="BJR-BD-Bq0"/>
-                            <constraint firstItem="FsA-yL-5Uf" firstAttribute="bottom" secondItem="L6N-Uj-F19" secondAttribute="top" id="LOt-SQ-aPe"/>
-                            <constraint firstAttribute="trailing" secondItem="Hv8-JA-y2u" secondAttribute="trailing" id="Ml1-Cg-wT4"/>
-                            <constraint firstAttribute="leading" secondItem="FsA-yL-5Uf" secondAttribute="leading" constant="-4" id="Mqb-eD-Yk0"/>
-                            <constraint firstItem="Hv8-JA-y2u" firstAttribute="top" secondItem="L6N-Uj-F19" secondAttribute="bottom" id="QcS-lC-Jm7"/>
-                            <constraint firstItem="Hv8-JA-y2u" firstAttribute="top" secondItem="L6N-Uj-F19" secondAttribute="bottom" id="R1a-O8-Tze"/>
+                            <constraint firstItem="FP3-Cm-krC" firstAttribute="top" secondItem="hQo-VA-YTa" secondAttribute="bottom" constant="8" symbolic="YES" id="2kc-dp-GXg"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="hQo-VA-YTa" secondAttribute="leadingMargin" id="6l4-ai-DpP"/>
+                            <constraint firstAttribute="trailing" secondItem="FP3-Cm-krC" secondAttribute="trailing" id="F5q-yY-YOW"/>
+                            <constraint firstItem="FP3-Cm-krC" firstAttribute="leading" secondItem="HWO-Pe-68p" secondAttribute="leading" id="RQi-sV-hOM"/>
                             <constraint firstItem="hQo-VA-YTa" firstAttribute="height" secondItem="HWO-Pe-68p" secondAttribute="height" multiplier="0.1" id="Ruq-wp-j8o"/>
-                            <constraint firstAttribute="trailing" secondItem="hQo-VA-YTa" secondAttribute="trailing" constant="4" id="c6x-T2-4tm"/>
-                            <constraint firstItem="Hv8-JA-y2u" firstAttribute="leading" secondItem="HWO-Pe-68p" secondAttribute="leading" id="d67-uG-4ir"/>
-                            <constraint firstAttribute="trailing" secondItem="FsA-yL-5Uf" secondAttribute="trailing" constant="4" id="ghL-jM-j8U"/>
-                            <constraint firstItem="L6N-Uj-F19" firstAttribute="centerX" secondItem="HWO-Pe-68p" secondAttribute="centerX" id="gtK-el-IFL"/>
-                            <constraint firstItem="Hv8-JA-y2u" firstAttribute="centerX" secondItem="HWO-Pe-68p" secondAttribute="centerX" id="kkN-hj-5HT"/>
-                            <constraint firstAttribute="trailing" secondItem="L6N-Uj-F19" secondAttribute="trailing" id="tuu-A2-MMQ"/>
-                            <constraint firstItem="FsA-yL-5Uf" firstAttribute="height" secondItem="hQo-VA-YTa" secondAttribute="height" multiplier="9:16" id="vrI-Mt-91r"/>
+                            <constraint firstAttribute="bottom" secondItem="FP3-Cm-krC" secondAttribute="bottom" id="X7H-jV-Fuc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hQo-VA-YTa" secondAttribute="trailingMargin" id="c6x-T2-4tm"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="historyDisplay" destination="FsA-yL-5Uf" id="Adf-JO-Jah"/>
                         <outlet property="mainDisplay" destination="hQo-VA-YTa" id="UgK-8z-VF7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kY0-RU-ZUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1868" y="-502"/>
+            <point key="canvasLocation" x="-1868" y="-502.39880059970017"/>
         </scene>
     </scenes>
 </document>
