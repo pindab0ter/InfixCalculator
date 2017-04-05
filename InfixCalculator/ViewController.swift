@@ -19,8 +19,19 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func appendPeriod() {
+        if userIsTyping, let text = mainDisplay.text {
+            if !text.contains(".") {
+                mainDisplay.text = text + "."
+            }
+        } else {
+            mainDisplay.text = "0."
+            userIsTyping = true
+        }
+    }
+
     @IBAction func operate(_ sender: UIButton) {
-        if userIsTyping{
+        if userIsTyping {
             brain.setOperand(displayValue)
             userIsTyping = false
         }

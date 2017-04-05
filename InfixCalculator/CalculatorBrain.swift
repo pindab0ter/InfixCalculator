@@ -73,5 +73,4 @@ struct CalculatorBrain {
             return accumulator
         }
     }
-
 }
