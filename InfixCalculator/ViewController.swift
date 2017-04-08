@@ -45,10 +45,16 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func clear(_ sender: UIButton) {
+        mainDisplay.text = "0"
+        brain.clear()
+        userIsTyping = false
+    }
+
     var displayValue: Double {
         get {
-            if let mainDisplayText = mainDisplay.text, let newValue = Double(mainDisplayText) {
-                return newValue
+            if let mainDisplayText = mainDisplay.text, let currentValue = Double(mainDisplayText) {
+                return currentValue
             } else {
                 return 0.0
             }

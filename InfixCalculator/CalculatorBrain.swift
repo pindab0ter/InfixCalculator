@@ -68,6 +68,11 @@ struct CalculatorBrain {
         accumulator = operand
     }
 
+    mutating func clear() {
+        accumulator = nil
+        sequence = nil
+    }
+
     var result: Double? {
         get {
             return accumulator
