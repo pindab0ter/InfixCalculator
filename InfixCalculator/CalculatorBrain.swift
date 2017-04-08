@@ -78,4 +78,10 @@ struct CalculatorBrain {
             return accumulator
         }
     }
+
+    var resultPending: Bool {
+        get {
+            return pendingBinaryOperation != nil
+        }
+    }
 }
