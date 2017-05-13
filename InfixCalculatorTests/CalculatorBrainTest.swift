@@ -26,7 +26,7 @@ class CalculatorBrainTest: XCTestCase {
 
     // Task 7b
     func testPendingOperation() {
-        let expected: Expectation = (value: 9, description: "7 + …")
+        let expected: Expectation = (value: 9, description: "7 + 9…")
 
         brain.setOperand(7)
         brain.performOperation("+")

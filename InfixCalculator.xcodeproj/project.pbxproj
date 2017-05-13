@@ -16,6 +16,7 @@
 		81755AB91E88330B002C9467 /* InfixCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AB81E88330B002C9467 /* InfixCalculatorUITests.swift */; };
 		81755AC71E8834A2002C9467 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AC61E8834A2002C9467 /* BorderedButton.swift */; };
 		A7E61084E381B0F2AE510CC4 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E61B7C4FBA19EA60310437 /* CalculatorBrain.swift */; };
+		A7E61EBE6C0CBCE8989E18F5 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E61407FCCBB9C6B38F5663 /* DoubleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		81755AB81E88330B002C9467 /* InfixCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfixCalculatorUITests.swift; sourceTree = "<group>"; };
 		81755ABA1E88330B002C9467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81755AC61E8834A2002C9467 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		A7E61407FCCBB9C6B38F5663 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		A7E61B7C4FBA19EA60310437 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 			children = (
 				81755AAD1E88330B002C9467 /* CalculatorBrainTest.swift */,
 				81755AAF1E88330B002C9467 /* Info.plist */,
+				A7E61407FCCBB9C6B38F5663 /* DoubleExtension.swift */,
 			);
 			path = InfixCalculatorTests;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				81755A991E88330B002C9467 /* AppDelegate.swift in Sources */,
 				81755AC71E8834A2002C9467 /* BorderedButton.swift in Sources */,
 				A7E61084E381B0F2AE510CC4 /* CalculatorBrain.swift in Sources */,
+				A7E61EBE6C0CBCE8989E18F5 /* DoubleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
