@@ -2,12 +2,10 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var mainDisplay: UILabel!
-    @IBOutlet weak var historyDisplay: UILabel!
-    @IBOutlet weak var backspaceUndoButton: BorderedButton!
+    @IBOutlet weak var descriptionDisplay: UILabel!
 
     private var userIsTyping = false
     private var brain = CalculatorBrain()
-    private var formatString = "%.12g"
 
     @IBAction func appendDigit(_ sender: UIButton) {
         if let digit = sender.currentTitle, let text = mainDisplay.text {
@@ -44,12 +42,15 @@ class ViewController: UIViewController {
         if let result = brain.result {
             displayValue = result
         }
+
+        updateDescriptionDisplay()
     }
 
     @IBAction func clear(_ sender: UIButton) {
         mainDisplay.text = "0"
-        brain.clear()
+        descriptionDisplay.text = " "
         userIsTyping = false
+        brain.clear()
     }
 
     var displayValue: Double {
@@ -61,7 +62,11 @@ class ViewController: UIViewController {
             }
         }
         set {
-            mainDisplay.text = String(format: formatString, newValue)
+            mainDisplay.text = newValue.display
         }
+    }
+
+    func updateDescriptionDisplay() {
+        descriptionDisplay.text = brain.description
     }
 }

@@ -578,6 +578,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="descriptionDisplay" destination="3ub-6X-ajq" id="gTL-Mx-871"/>
                         <outlet property="mainDisplay" destination="hQo-VA-YTa" id="UgK-8z-VF7"/>
                     </connections>
                 </viewController>
