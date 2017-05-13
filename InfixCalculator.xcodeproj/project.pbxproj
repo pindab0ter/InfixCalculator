@@ -12,7 +12,7 @@
 		81755A9E1E88330B002C9467 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81755A9C1E88330B002C9467 /* Main.storyboard */; };
 		81755AA01E88330B002C9467 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81755A9F1E88330B002C9467 /* Assets.xcassets */; };
 		81755AA31E88330B002C9467 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81755AA11E88330B002C9467 /* LaunchScreen.storyboard */; };
-		81755AAE1E88330B002C9467 /* InfixCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AAD1E88330B002C9467 /* InfixCalculatorTests.swift */; };
+		81755AAE1E88330B002C9467 /* CalculatorBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AAD1E88330B002C9467 /* CalculatorBrainTest.swift */; };
 		81755AB91E88330B002C9467 /* InfixCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AB81E88330B002C9467 /* InfixCalculatorUITests.swift */; };
 		81755AC71E8834A2002C9467 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AC61E8834A2002C9467 /* BorderedButton.swift */; };
 		A7E61084E381B0F2AE510CC4 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E61B7C4FBA19EA60310437 /* CalculatorBrain.swift */; };
@@ -44,7 +44,7 @@
 		81755AA21E88330B002C9467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81755AA41E88330B002C9467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81755AA91E88330B002C9467 /* InfixCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfixCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		81755AAD1E88330B002C9467 /* InfixCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfixCalculatorTests.swift; sourceTree = "<group>"; };
+		81755AAD1E88330B002C9467 /* CalculatorBrainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrainTest.swift; sourceTree = "<group>"; };
 		81755AAF1E88330B002C9467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81755AB41E88330B002C9467 /* InfixCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfixCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81755AB81E88330B002C9467 /* InfixCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfixCalculatorUITests.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		81755AAC1E88330B002C9467 /* InfixCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				81755AAD1E88330B002C9467 /* InfixCalculatorTests.swift */,
+				81755AAD1E88330B002C9467 /* CalculatorBrainTest.swift */,
 				81755AAF1E88330B002C9467 /* Info.plist */,
 			);
 			path = InfixCalculatorTests;
@@ -279,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81755AAE1E88330B002C9467 /* InfixCalculatorTests.swift in Sources */,
+				81755AAE1E88330B002C9467 /* CalculatorBrainTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +522,7 @@
 				81755ABF1E88330B002C9467 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81755AC01E88330B002C9467 /* Build configuration list for PBXNativeTarget "InfixCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +531,7 @@
 				81755AC21E88330B002C9467 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81755AC31E88330B002C9467 /* Build configuration list for PBXNativeTarget "InfixCalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +540,7 @@
 				81755AC51E88330B002C9467 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
