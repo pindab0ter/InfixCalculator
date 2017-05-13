@@ -7,6 +7,7 @@ class ViewController: UIViewController {
 
     private var userIsTyping = false
     private var brain = CalculatorBrain()
+    private var formatString = "%.12g"
 
     @IBAction func appendDigit(_ sender: UIButton) {
         if let digit = sender.currentTitle, let text = mainDisplay.text {
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
             }
         }
         set {
-            mainDisplay.text = String(newValue)
+            mainDisplay.text = String(format: formatString, newValue)
         }
     }
 }
