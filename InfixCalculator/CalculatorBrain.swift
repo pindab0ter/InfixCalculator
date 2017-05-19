@@ -7,7 +7,7 @@ struct CalculatorBrain {
     private enum Operation {
         case constant(Double)
         case unaryOperation((Double) -> Double, (String) -> String)
-        case binaryOperation((Double, Double) -> Double, (String, String) -> String, Precedence)
+        case binaryOperation((Double, Double) -> Double, (String, String) -> String)
         case equals
     }
 
@@ -22,10 +22,10 @@ struct CalculatorBrain {
         "√": Operation.unaryOperation({ sqrt($0) }, { "√(\($0))" }),
         "cos": Operation.unaryOperation({ cos($0)}, { "cos\($0)" }),
         // "⁺/₋": Operation.unaryOperation { -$0 },
-        "×": Operation.binaryOperation({ $0 * $1 }, { "\($0) × \($1)" }, Precedence.max),
-        "÷": Operation.binaryOperation({ $0 / $1 }, { "\($0) ÷ \($1)" }, Precedence.max),
-        "+": Operation.binaryOperation({ $0 + $1 }, { "\($0) + \($1)" }, Precedence.min),
-        "−": Operation.binaryOperation({ $0 - $1 }, { "\($0) − \($1)" }, Precedence.min),
+        "×": Operation.binaryOperation({ $0 * $1 }, { "\($0) × \($1)" }),
+        "÷": Operation.binaryOperation({ $0 / $1 }, { "\($0) ÷ \($1)" }),
+        "+": Operation.binaryOperation({ $0 + $1 }, { "\($0) + \($1)" }),
+        "−": Operation.binaryOperation({ $0 - $1 }, { "\($0) − \($1)" }),
         "=": Operation.equals
     ]
     // @formatter:on
@@ -36,14 +36,12 @@ struct CalculatorBrain {
             case .constant(let value):
                 accumulator.value = value
                 accumulator.description = symbol
-            case .unaryOperation(let function, let description):
-                if (accumulator.value != nil) {
-                    let result = function(accumulator.value!)
-                    let description = description(accumulator.description)
-                    accumulator.value = result
-                    accumulator.description = description
+            case .unaryOperation(let operation, let description):
+                if accumulator.value != nil {
+                    accumulator.value = operation(accumulator.value!)
+                    accumulator.description = description(accumulator.description)
                 }
-            case .binaryOperation(let function, let description, let precedence):
+            case .binaryOperation(let operation, let description):
                 if accumulator.value != nil {
                     pendingBinaryOperation = PendingBinaryOperation(firstOperand: accumulator.value!, currentDescription: accumulator.description, calculationFunction: function, descriptionFunction: description)
                     accumulator = (nil, "")
