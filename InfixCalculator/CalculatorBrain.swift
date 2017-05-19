@@ -106,12 +106,12 @@ struct CalculatorBrain {
         }
     }
 
-    var description: String? {
+    var description: String {
         get {
-            if resultPending {
-                return pendingBinaryOperation!.describe(with: accumulator.description) + "…"
+            if operationPending {
+                return pendingBinaryOperation!.describe(with: accumulator.description)
             } else {
-                return accumulator.description + " ="
+                return accumulator.description
             }
         }
     }

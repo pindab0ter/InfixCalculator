@@ -67,6 +67,16 @@ class ViewController: UIViewController {
     }
 
     func updateDescriptionDisplay() {
-        descriptionDisplay.text = brain.description
+        var description = brain.description
+
+        if description == "" {
+            description = " "
+        } else if brain.operationPending {
+            description += "…"
+        } else {
+            description += " ="
+        }
+
+        descriptionDisplay.text = description
     }
 }
