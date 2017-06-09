@@ -47,9 +47,9 @@ class InfixCalculatorUITests: XCTestCase {
         XCTAssertEqual(actual.description, expected.description)
 
         // Task 7d
-        XCUIDevice.shared().orientation = .landscapeLeft
+        XCUIDevice.shared.orientation = .landscapeLeft
         app.buttons["√"].tap()
-        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared.orientation = .portrait
 
         expected = (4, "√(7 + 9) =")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
@@ -95,9 +95,9 @@ class InfixCalculatorUITests: XCTestCase {
         // Task 7k
         app.buttons["4"].tap()
         app.buttons["×"].tap()
-        XCUIDevice.shared().orientation = .landscapeLeft
+        XCUIDevice.shared.orientation = .landscapeLeft
         app.buttons["π"].tap()
-        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared.orientation = .portrait
         app.buttons["="].tap()
 
         expected = (12.5663706143592, "4 × π =")

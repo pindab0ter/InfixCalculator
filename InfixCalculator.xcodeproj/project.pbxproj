@@ -16,7 +16,7 @@
 		81755AB91E88330B002C9467 /* InfixCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AB81E88330B002C9467 /* InfixCalculatorUITests.swift */; };
 		81755AC71E8834A2002C9467 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81755AC61E8834A2002C9467 /* BorderedButton.swift */; };
 		A7E61084E381B0F2AE510CC4 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E61B7C4FBA19EA60310437 /* CalculatorBrain.swift */; };
-		A7E61EBE6C0CBCE8989E18F5 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E61407FCCBB9C6B38F5663 /* DoubleExtension.swift */; };
+		A7E61789453D206722CF59A5 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E61562B7D87DF512652DEC /* DoubleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 		81755AB81E88330B002C9467 /* InfixCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfixCalculatorUITests.swift; sourceTree = "<group>"; };
 		81755ABA1E88330B002C9467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81755AC61E8834A2002C9467 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
-		A7E61407FCCBB9C6B38F5663 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		A7E61562B7D87DF512652DEC /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		A7E61B7C4FBA19EA60310437 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +111,7 @@
 				81755AA11E88330B002C9467 /* LaunchScreen.storyboard */,
 				81755AA41E88330B002C9467 /* Info.plist */,
 				A7E61B7C4FBA19EA60310437 /* CalculatorBrain.swift */,
+				A7E61562B7D87DF512652DEC /* DoubleExtension.swift */,
 			);
 			path = InfixCalculator;
 			sourceTree = "<group>";
@@ -120,7 +121,6 @@
 			children = (
 				81755AAD1E88330B002C9467 /* CalculatorBrainTest.swift */,
 				81755AAF1E88330B002C9467 /* Info.plist */,
-				A7E61407FCCBB9C6B38F5663 /* DoubleExtension.swift */,
 			);
 			path = InfixCalculatorTests;
 			sourceTree = "<group>";
@@ -197,23 +197,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Hans van Luttikhuizen";
 				TargetAttributes = {
 					81755A941E88330B002C9467 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = ZLJSX8LJB2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					81755AA81E88330B002C9467 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = ZLJSX8LJB2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 81755A941E88330B002C9467;
 					};
 					81755AB31E88330B002C9467 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = ZLJSX8LJB2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 81755A941E88330B002C9467;
 					};
@@ -275,7 +278,7 @@
 				81755A991E88330B002C9467 /* AppDelegate.swift in Sources */,
 				81755AC71E8834A2002C9467 /* BorderedButton.swift in Sources */,
 				A7E61084E381B0F2AE510CC4 /* CalculatorBrain.swift in Sources */,
-				A7E61EBE6C0CBCE8989E18F5 /* DoubleExtension.swift in Sources */,
+				A7E61789453D206722CF59A5 /* DoubleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +342,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -347,7 +352,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -389,7 +398,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -397,7 +408,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -432,7 +447,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.InfixCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -445,7 +461,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.InfixCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -459,7 +476,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.InfixCalculatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfixCalculator.app/InfixCalculator";
 			};
 			name = Debug;
@@ -474,7 +492,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.InfixCalculatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfixCalculator.app/InfixCalculator";
 			};
 			name = Release;
@@ -488,7 +507,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.InfixCalculatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = InfixCalculator;
 			};
 			name = Debug;
@@ -502,7 +522,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.pindab0ter.InfixCalculatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = InfixCalculator;
 			};
 			name = Release;

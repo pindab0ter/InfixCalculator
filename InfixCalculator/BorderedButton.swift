@@ -2,13 +2,16 @@ import UIKit
 
 extension UIColor {
     func darkenedCopy(_ amount: CGFloat) -> UIColor {
-        var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) = (0, 0, 0, 0)
+        var h: CGFloat = 0
+        var s: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        
+        getHue(&h, saturation: &s, brightness: &b, alpha: &a)
 
-        getHue(&(hsba.h), saturation: &(hsba.s), brightness: &(hsba.b), alpha: &(hsba.a))
+        b -= amount
 
-        hsba.b -= amount
-
-        return UIColor.init(hue: hsba.h, saturation: hsba.s, brightness: hsba.b, alpha: hsba.a)
+        return UIColor.init(hue: h, saturation: s, brightness: b, alpha: a)
     }
 }
 
