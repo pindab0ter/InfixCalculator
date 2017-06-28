@@ -132,6 +132,20 @@ struct CalculatorBrain {
                 pendingBinaryOperation = nil
             } // TODO Else?
         }
+        
+        func updateDescription() {
+            if operationPending {
+                if let lastElement = elements.last {
+                    switch lastElement {
+                    case .operand(let operand):
+                        accumulator.description = pendingBinaryOperation!.describe(with: operand.display)
+                    case .variable(let variable):
+                        accumulator.description = pendingBinaryOperation!.describe(with: variable)
+                    default:
+                        accumulator.description = pendingBinaryOperation!.describe(with: "")
+                    }
+                }
+            }
         }
 
         for element in elements {
@@ -144,6 +158,8 @@ struct CalculatorBrain {
                 setOperand(symbol: variable)
             }
         }
+        
+        updateDescription()
         
         return (
                 result: accumulator.value,
