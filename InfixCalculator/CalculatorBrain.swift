@@ -152,34 +152,24 @@ struct CalculatorBrain {
         )
     }
 
-    mutating func clear() {
-        accumulator = (0, "")
-        pendingBinaryOperation = nil
-    }
-
+    @available(iOS, deprecated, message: "Deprecated by evaluate(using:)")
     var result: Double? {
         get {
-            if accumulator.value == nil && operationPending {
-                return pendingBinaryOperation!.firstOperand
-            } else {
-                return accumulator.value
-            }
+            return evaluate().result
         }
     }
 
+    @available(iOS, deprecated, message: "Deprecated by evaluate(using:)")
     var operationPending: Bool {
         get {
-            return pendingBinaryOperation != nil
+            return evaluate().isPending
         }
     }
 
+    @available(iOS, deprecated, message: "Deprecated by evaluate(using:)")
     var description: String {
         get {
-            if operationPending {
-                return pendingBinaryOperation!.describe(with: accumulator.description)
-            } else {
-                return accumulator.description
-            }
+            return evaluate().description
         }
     }
 }
