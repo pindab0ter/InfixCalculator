@@ -6,7 +6,7 @@ struct CalculatorBrain {
     private var pendingBinaryOperation: PendingBinaryOperation?
 
     private enum Operation {
-        case constant(Double)
+        case constant(Double, String)
         case unaryOperation((Double) -> Double, (String) -> String)
         case binaryOperation((Double, Double) -> Double, (String, String) -> String)
         case equals
@@ -17,9 +17,9 @@ struct CalculatorBrain {
     }
 
     // @formatter:off
-    private var operation: Dictionary<String, Operation> = [
-        "π": Operation.constant(Double.pi),
-        "e": Operation.constant(M_E),
+    private var operations: Dictionary<String, Operation> = [
+        "π": Operation.constant(Double.pi, "π"),
+        "e": Operation.constant(M_E, "e"),
         "√": Operation.unaryOperation({ sqrt($0) }, { "√(\($0))" }),
         "cos": Operation.unaryOperation({ cos($0)}, { "cos\($0)" }),
         // "⁺/₋": Operation.unaryOperation { -$0 },
@@ -40,20 +40,24 @@ struct CalculatorBrain {
         accumulator.description += operand.display
     }
 
-    mutating func performOperation(_ symbol: String) {
         if let operation = operation[symbol] {
+        func setOperation(_ operation: Operation) {
             switch operation {
-            case .constant(let value):
-                accumulator = (value, symbol)
+            case .constant(let value, let description):
+                accumulator = (value, description)
             case .unaryOperation(let operation, let description):
                 if accumulator.value != nil {
                     accumulator = (operation(accumulator.value!), description(accumulator.description))
                 }
-            case .binaryOperation(let operation, let description):
+            case .binaryOperation(let operationFunction, let descriptionFunction):
                 performPendingBinaryOperation()
                 if accumulator.value != nil {
-                    pendingBinaryOperation = PendingBinaryOperation(firstOperand: accumulator.value!, currentDescription: accumulator.description, operation: operation, description: description)
-                    accumulator = (nil, "")
+                    pendingBinaryOperation = PendingBinaryOperation(
+                            firstOperand: accumulator.value!,
+                            currentDescription: accumulator.description,
+                            operationFunction: operationFunction,
+                            descriptionFunction: descriptionFunction
+                    )
                 }
             case .equals:
                 performPendingBinaryOperation()

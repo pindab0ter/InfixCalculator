@@ -18,7 +18,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 7, description: "7 + ")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -29,7 +29,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 9, description: "7 + 9")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
@@ -41,9 +41,9 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 16, description: "7 + 9")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
-        brain.performOperation("=")
+        brain.setOperation("=")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -54,10 +54,10 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 4, description: "√(7 + 9)")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
-        brain.performOperation("=")
-        brain.performOperation("√")
+        brain.setOperation("=")
+        brain.setOperation("√")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -68,13 +68,13 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 6, description: "√(7 + 9) + 2")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
-        brain.performOperation("=")
-        brain.performOperation("√")
-        brain.performOperation("+")
+        brain.setOperation("=")
+        brain.setOperation("√")
+        brain.setOperation("+")
         brain.setOperand(2)
-        brain.performOperation("=")
+        brain.setOperation("=")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -85,9 +85,9 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 3, description: "7 + √(9)")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
-        brain.performOperation("√")
+        brain.setOperation("√")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -98,10 +98,10 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 10, description: "7 + √(9)")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
-        brain.performOperation("√")
-        brain.performOperation("=")
+        brain.setOperation("√")
+        brain.setOperation("=")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -112,15 +112,15 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 25, description: "7 + 9 + 6 + 3")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
-        brain.performOperation("=")
-        brain.performOperation("+")
+        brain.setOperation("=")
+        brain.setOperation("+")
         brain.setOperand(6)
-        brain.performOperation("=")
-        brain.performOperation("+")
+        brain.setOperation("=")
+        brain.setOperation("+")
         brain.setOperand(3)
-        brain.performOperation("=")
+        brain.setOperation("=")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -131,14 +131,14 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 9, description: "6 + 3")
 
         brain.setOperand(7)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(9)
-        brain.performOperation("=")
-        brain.performOperation("√")
+        brain.setOperation("=")
+        brain.setOperation("√")
         brain.setOperand(6)
-        brain.performOperation("+")
+        brain.setOperation("+")
         brain.setOperand(3)
-        brain.performOperation("=")
+        brain.setOperation("=")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -151,9 +151,9 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 12.5663706143592, description: "4 × π")
 
         brain.setOperand(4)
-        brain.performOperation("×")
-        brain.performOperation("π")
-        brain.performOperation("=")
+        brain.setOperation("×")
+        brain.setOperation("π")
+        brain.setOperation("=")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -164,13 +164,13 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 360, description: "6 × 5 × 4 × 3")
 
         brain.setOperand(6)
-        brain.performOperation("×")
+        brain.setOperation("×")
         brain.setOperand(5)
-        brain.performOperation("×")
+        brain.setOperation("×")
         brain.setOperand(4)
-        brain.performOperation("×")
+        brain.setOperation("×")
         brain.setOperand(3)
-        brain.performOperation("=")
+        brain.setOperation("=")
 
         XCTAssertEqualWithAccuracy(expected.value, brain.result!, accuracy: accuracy)
         XCTAssertEqual(expected.description, brain.description)
@@ -182,7 +182,7 @@ class CalculatorBrainTest: XCTestCase {
      let expected: Expectation = (value: 8, description: "6 + 4 ÷ 2")
      
      brain.setOperand(6)
-     brain.performOperation("+")
+     brain.setOperation("+")
      brain.setOperand(4)
      brain.performOperation("÷")
      brain.setOperand(2)

@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         }
 
         if let symbol = sender.currentTitle {
-            brain.performOperation(symbol)
+            brain.setOperation(symbol)
         }
 
         if let result = brain.result {
