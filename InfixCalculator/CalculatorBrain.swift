@@ -118,21 +118,19 @@ struct CalculatorBrain {
                 performPendingBinaryOperation()
             }
         }
-        
+
         func performPendingBinaryOperation() {
-            guard operationPending else {
+            guard operationPending, accumulator.value != nil else {
                 return
             }
-            
-            if accumulator.value != nil {
-                let result = pendingBinaryOperation!.perform(with: accumulator.value!)
-                let description = pendingBinaryOperation!.describe(with: accumulator.description)
-                
-                accumulator = (result, description)
-                pendingBinaryOperation = nil
-            } // TODO Else?
+
+            let result = pendingBinaryOperation!.perform(with: accumulator.value!)
+            let description = pendingBinaryOperation!.describe(with: accumulator.description)
+
+            accumulator = (result, description)
+            pendingBinaryOperation = nil
         }
-        
+
         func updateDescription() {
             if operationPending {
                 if let lastElement = elements.last {
@@ -158,9 +156,9 @@ struct CalculatorBrain {
                 setOperand(symbol: variable)
             }
         }
-        
+
         updateDescription()
-        
+
         return (
                 result: accumulator.value,
                 isPending: operationPending,
