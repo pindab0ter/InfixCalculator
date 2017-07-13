@@ -38,16 +38,16 @@ class CalculatorBrainTest: XCTestCase {
 
     // Task 7c
     func testCompletedOperation() {
-        let expected: Expectation = (value: 16, description: "7 + 9")
-        let actual = brain.evaluate()
-
         brain.setOperand(7)
         brain.setOperation("+")
         brain.setOperand(9)
         brain.setOperation("=")
-
-        XCTAssertEqualWithAccuracy(brain.result!, expected.value, accuracy: accuracy)
-        XCTAssertEqual(brain.description, expected.description)
+        
+        let expected: Expectation = (value: 16, description: "7 + 9")
+        let actual = brain.evaluate()
+        
+        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.description, expected.description)
     }
 
     // Task 7d
@@ -89,8 +89,9 @@ class CalculatorBrainTest: XCTestCase {
         brain.setOperation("+")
         brain.setOperand(9)
         brain.setOperation("√")
+        brain.setOperation("=")
 
-        let expected: Expectation = (value: 3, description: "7 + √(9)")
+        let expected: Expectation = (value: 10, description: "7 + √(9)")
         let actual = brain.evaluate()
 
         XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
@@ -134,9 +135,6 @@ class CalculatorBrainTest: XCTestCase {
 
     // Task 7i
     func testStartNewDescriptionAfterCompletedOperation() {
-        let expected: Expectation = (value: 9, description: "6 + 3")
-        let actual = brain.evaluate()
-
         brain.setOperand(7)
         brain.setOperation("+")
         brain.setOperand(9)
@@ -146,6 +144,9 @@ class CalculatorBrainTest: XCTestCase {
         brain.setOperation("+")
         brain.setOperand(3)
         brain.setOperation("=")
+        
+        let expected: Expectation = (value: 9, description: "6 + 3")
+        let actual = brain.evaluate()
 
         XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -185,9 +186,7 @@ class CalculatorBrainTest: XCTestCase {
         XCTAssertEqual(actual.description, expected.description)
     }
 
-    // Order of operations is not required by the assignment and would add an extra layer of complexity
-
-    /*func testHighAfterLowPrecedence() {
+    func testHighAfterLowPrecedence() {
         brain.setOperand(6)
         brain.setOperation("+")
         brain.setOperand(4)
@@ -216,5 +215,5 @@ class CalculatorBrainTest: XCTestCase {
 
         XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
-    }*/
+    }
 }
