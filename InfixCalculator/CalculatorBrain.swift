@@ -10,7 +10,7 @@ struct CalculatorBrain {
     private enum Operation {
         case constant(Double, String)
         case unaryOperation((Double) -> Double, (String) -> String)
-        case binaryOperation((Double, Double) -> Double, (String, String) -> String)
+        case binaryOperation((Double, Double) -> Double, (String, String) -> String, Precedence)
         case equals
     }
 
@@ -27,10 +27,10 @@ struct CalculatorBrain {
         "√": Operation.unaryOperation({ sqrt($0) }, { "√(\($0))" }),
         "cos": Operation.unaryOperation({ cos($0)}, { "cos\($0)" }),
         // "⁺/₋": Operation.unaryOperation { -$0 },
-        "×": Operation.binaryOperation({ $0 * $1 }, { "\($0) × \($1)" }),
-        "÷": Operation.binaryOperation({ $0 / $1 }, { "\($0) ÷ \($1)" }),
-        "+": Operation.binaryOperation({ $0 + $1 }, { "\($0) + \($1)" }),
-        "−": Operation.binaryOperation({ $0 - $1 }, { "\($0) − \($1)" }),
+        "×": Operation.binaryOperation({ $0 * $1 }, { "\($0) × \($1)" }, Precedence.max),
+        "÷": Operation.binaryOperation({ $0 / $1 }, { "\($0) ÷ \($1)" }, Precedence.max),
+        "+": Operation.binaryOperation({ $0 + $1 }, { "\($0) + \($1)" }, Precedence.min),
+        "−": Operation.binaryOperation({ $0 - $1 }, { "\($0) − \($1)" }, Precedence.min),
         "=": Operation.equals
     ]
     // @formatter:on
@@ -76,24 +76,23 @@ struct CalculatorBrain {
         guard !elements.isEmpty else {
             return (nil, false, "")
         }
-
-        var accumulator: (value: Double?, description: String) = (nil, "")
-        var pendingBinaryOperation: PendingBinaryOperation?
+        
         var currentPrecedence = Precedence.max
+        var pendingBinaryOperation: PendingBinaryOperation?
+        var secondaryPendingBinaryOperation: PendingBinaryOperation?
         var operationPending: Bool {
             return pendingBinaryOperation != nil
         }
+        var accumulator: (value: Double?, description: String) = (nil, "")
 
         func setOperand(value: Double) {
             accumulator.value = value
             accumulator.description = value.display
-            currentPrecedence = Precedence.max
         }
 
         func setOperand(symbol: String) {
             accumulator.value = variables?[symbol] ?? 0
             accumulator.description = symbol
-            currentPrecedence = Precedence.max
         }
 
         func setOperation(_ operation: Operation) {
@@ -104,44 +103,69 @@ struct CalculatorBrain {
                 if accumulator.value != nil {
                     accumulator = (operation(accumulator.value!), description(accumulator.description))
                 }
-            case .binaryOperation(let operationFunction, let descriptionFunction):
-                performPendingBinaryOperation()
-                if accumulator.value != nil {
+            case .binaryOperation(let operationFunction, let descriptionFunction, let newPrecedence):
+                guard accumulator.value != nil else {
+                    return
+                }
+                
+                if operationPending, newPrecedence.rawValue > currentPrecedence.rawValue {
+                    secondaryPendingBinaryOperation = PendingBinaryOperation(
+                        firstOperand: accumulator.value!,
+                        currentDescription: accumulator.description,
+                        operationFunction: operationFunction,
+                        descriptionFunction: descriptionFunction
+                    )
+                } else {
+                    performPendingBinaryOperations()
+                    
+                    if currentPrecedence.rawValue < newPrecedence.rawValue {
+                        accumulator.description = "(\(accumulator.description))"
+                    }
+                    
+                    currentPrecedence = newPrecedence
+                    
                     pendingBinaryOperation = PendingBinaryOperation(
-                            firstOperand: accumulator.value!,
-                            currentDescription: accumulator.description,
-                            operationFunction: operationFunction,
-                            descriptionFunction: descriptionFunction
+                        firstOperand: accumulator.value!,
+                        currentDescription: accumulator.description,
+                        operationFunction: operationFunction,
+                        descriptionFunction: descriptionFunction
                     )
                 }
             case .equals:
-                performPendingBinaryOperation()
+                performPendingBinaryOperations()
             }
         }
 
-        func performPendingBinaryOperation() {
+        func performPendingBinaryOperations() {
             guard operationPending, accumulator.value != nil else {
                 return
             }
-
-            let result = pendingBinaryOperation!.perform(with: accumulator.value!)
-            let description = pendingBinaryOperation!.describe(with: accumulator.description)
+            
+            // TODO: Convert to array with do/while or recursive loop
+            
+            let secondaryResult = secondaryPendingBinaryOperation?.perform(with: accumulator.value!)
+            let secondaryDescription = secondaryPendingBinaryOperation?.describe(with: accumulator.description)
+            
+            let result = pendingBinaryOperation!.perform(with: secondaryResult ?? accumulator.value!)
+            let description = pendingBinaryOperation!.describe(with: secondaryDescription ?? accumulator.description)
 
             accumulator = (result, description)
             pendingBinaryOperation = nil
         }
 
         func updateDescription() {
-            if operationPending {
-                if let lastElement = elements.last {
-                    switch lastElement {
-                    case .operand(let operand):
-                        accumulator.description = pendingBinaryOperation!.describe(with: operand.display)
-                    case .variable(let variable):
-                        accumulator.description = pendingBinaryOperation!.describe(with: variable)
-                    default:
-                        accumulator.description = pendingBinaryOperation!.describe(with: "")
-                    }
+            guard operationPending else {
+                return
+            }
+
+            if let lastElement = elements.last {
+                switch lastElement {
+                case .operand(let operand):
+                    accumulator.description = pendingBinaryOperation!.describe(with: operand.display)
+                case .variable(let variable):
+                    accumulator.description = pendingBinaryOperation!.describe(with: variable)
+                default:
+                    accumulator.description = pendingBinaryOperation!.describe(with: "")
                 }
             }
         }
