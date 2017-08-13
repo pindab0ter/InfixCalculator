@@ -200,6 +200,24 @@ class CalculatorBrainTest: XCTestCase {
         XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
+    
+// Foregoing this test because it is not required by the assignment
+//    func testMipleHighAfterLowPrecedence() {
+//        brain.setOperand(6)
+//        brain.setOperation("+")
+//        brain.setOperand(8)
+//        brain.setOperation("÷")
+//        brain.setOperand(4)
+//        brain.setOperation("÷")
+//        brain.setOperand(2)
+//        brain.setOperation("=")
+//
+//        let expected: Expectation = (value: 7, description: "6 + 8 ÷ 4 ÷ 2")
+//        let actual = brain.evaluate()
+//
+//        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
+//        XCTAssertEqual(actual.description, expected.description)
+//    }
 
     func testHighAfterCompletedLowPrecedence() {
         brain.setOperand(6)

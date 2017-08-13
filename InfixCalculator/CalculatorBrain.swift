@@ -78,10 +78,9 @@ struct CalculatorBrain {
         }
         
         var currentPrecedence = Precedence.max
-        var pendingBinaryOperation: PendingBinaryOperation?
-        var secondaryPendingBinaryOperation: PendingBinaryOperation?
+        var pendingBinaryOperations: [PendingBinaryOperation] = []
         var operationPending: Bool {
-            return pendingBinaryOperation != nil
+            return !pendingBinaryOperations.isEmpty
         }
         var accumulator: (value: Double?, description: String) = (nil, "")
 
@@ -109,11 +108,13 @@ struct CalculatorBrain {
                 }
                 
                 if operationPending, newPrecedence.rawValue > currentPrecedence.rawValue {
-                    secondaryPendingBinaryOperation = PendingBinaryOperation(
-                        firstOperand: accumulator.value!,
-                        currentDescription: accumulator.description,
-                        operationFunction: operationFunction,
-                        descriptionFunction: descriptionFunction
+                    pendingBinaryOperations.append(
+                        PendingBinaryOperation(
+                            firstOperand: accumulator.value!,
+                            currentDescription: accumulator.description,
+                            operationFunction: operationFunction,
+                            descriptionFunction: descriptionFunction
+                        )
                     )
                 } else {
                     performPendingBinaryOperations()
@@ -122,15 +123,15 @@ struct CalculatorBrain {
                         accumulator.description = "(\(accumulator.description))"
                     }
                     
-                    currentPrecedence = newPrecedence
-                    
-                    pendingBinaryOperation = PendingBinaryOperation(
+                    pendingBinaryOperations = [PendingBinaryOperation(
                         firstOperand: accumulator.value!,
                         currentDescription: accumulator.description,
                         operationFunction: operationFunction,
                         descriptionFunction: descriptionFunction
-                    )
+                    )]
                 }
+                currentPrecedence = newPrecedence
+                
             case .equals:
                 performPendingBinaryOperations()
             }
@@ -141,19 +142,15 @@ struct CalculatorBrain {
                 return
             }
             
-            // TODO: Convert to array with do/while or recursive loop
+            for operation in pendingBinaryOperations.reversed() {
+                accumulator.value = operation.perform(with: accumulator.value!)
+                accumulator.description = operation.describe(with: accumulator.description)
+            }
             
-            let secondaryResult = secondaryPendingBinaryOperation?.perform(with: accumulator.value!)
-            let secondaryDescription = secondaryPendingBinaryOperation?.describe(with: accumulator.description)
-            
-            let result = pendingBinaryOperation!.perform(with: secondaryResult ?? accumulator.value!)
-            let description = pendingBinaryOperation!.describe(with: secondaryDescription ?? accumulator.description)
-
-            accumulator = (result, description)
-            pendingBinaryOperation = nil
+            pendingBinaryOperations = []
         }
 
-        func updateDescription() {
+        func finaliseDescription() {
             guard operationPending else {
                 return
             }
@@ -161,11 +158,11 @@ struct CalculatorBrain {
             if let lastElement = elements.last {
                 switch lastElement {
                 case .operand(let operand):
-                    accumulator.description = pendingBinaryOperation!.describe(with: operand.display)
+                    accumulator.description = pendingBinaryOperations.last!.describe(with: operand.display)
                 case .variable(let variable):
-                    accumulator.description = pendingBinaryOperation!.describe(with: variable)
+                    accumulator.description = pendingBinaryOperations.last!.describe(with: variable)
                 default:
-                    accumulator.description = pendingBinaryOperation!.describe(with: "")
+                    accumulator.description = pendingBinaryOperations.last!.describe(with: "")
                 }
             }
         }
@@ -181,7 +178,7 @@ struct CalculatorBrain {
             }
         }
 
-        updateDescription()
+        finaliseDescription()
 
         return (
                 result: accumulator.value,
