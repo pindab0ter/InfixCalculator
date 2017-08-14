@@ -19,7 +19,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 7, description: "7 + ")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -32,7 +32,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 9, description: "7 + 9")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -46,7 +46,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 16, description: "7 + 9")
         let actual = brain.evaluate()
         
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -61,7 +61,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 4, description: "√(7 + 9)")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -79,7 +79,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 6, description: "√(7 + 9) + 2")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -94,7 +94,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 10, description: "7 + √(9)")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -109,7 +109,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 10, description: "7 + √(9)")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -129,7 +129,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 25, description: "7 + 9 + 6 + 3")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -148,7 +148,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 9, description: "6 + 3")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -164,7 +164,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 12.5663706143592, description: "4 × π")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -182,7 +182,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 360, description: "6 × 5 × 4 × 3")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 
@@ -197,7 +197,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 8, description: "6 + 4 ÷ 2")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
     
@@ -231,7 +231,7 @@ class CalculatorBrainTest: XCTestCase {
         let expected: Expectation = (value: 5, description: "(6 + 4) ÷ 2")
         let actual = brain.evaluate()
 
-        XCTAssertEqualWithAccuracy(actual.result!, expected.value, accuracy: accuracy)
+        XCTAssertEqual(actual.result!, expected.value, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
     }
 }
