@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             brain.setOperation(symbol)
         }
 
-        if let result = brain.result {
+        if let result = brain.evaluate().result {
             displayValue = result
         }
 
@@ -67,16 +67,17 @@ class ViewController: UIViewController {
     }
 
     func updateDescriptionDisplay() {
-        var description = brain.description
-
+        let (_, isPending, description) = brain.evaluate()
+        var newDescription: String
+    
         if description == "" {
-            description = " "
-        } else if brain.operationPending {
-            description += "…"
+            newDescription = " "
+        } else if isPending {
+            newDescription = description + "…"
         } else {
-            description += " ="
+            newDescription = description + " ="
         }
 
-        descriptionDisplay.text = description
+        descriptionDisplay.text = newDescription
     }
 }
