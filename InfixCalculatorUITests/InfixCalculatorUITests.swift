@@ -25,7 +25,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (7, "7 + …")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
 
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
 
         // Task 7b
@@ -34,7 +34,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (9, "7 + …")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
 
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
 
         // Task 7c
@@ -43,7 +43,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (16, "7 + 9 =")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
 
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
 
         // Task 7d
@@ -54,7 +54,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (4, "√(7 + 9) =")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
 
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
 
         // Task 7e
@@ -65,7 +65,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (6, "√(7 + 9) + 2 =")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
 
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
 
         app.buttons["C"].tap()
@@ -73,7 +73,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (0, " ")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
 
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
 
         // Task 7j
@@ -87,7 +87,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (73, "5 + 6 =")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
 
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
 
         app.buttons["C"].tap()
@@ -103,7 +103,7 @@ class InfixCalculatorUITests: XCTestCase {
         expected = (12.5663706143592, "4 × π =")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
         
-        XCTAssertEqualWithAccuracy(actual.result, expected.result, accuracy: sixDecimals)
+        XCTAssertEqual(actual.result, expected.result, accuracy: sixDecimals)
         XCTAssertEqual(actual.description, expected.description)
     }
 }
