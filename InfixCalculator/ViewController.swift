@@ -15,17 +15,6 @@ class ViewController: UIViewController {
             appendSymbol(digit)
         }
     }
-    
-    private func appendSymbol(_ symbol: String) {
-        if let text = mainDisplay.text {
-            if userIsTyping {
-                mainDisplay.text = text + symbol
-            } else {
-                mainDisplay.text = symbol
-                userIsTyping = true
-            }
-        }
-    }
 
     @IBAction func appendPeriod() {
         if userIsTyping, let text = mainDisplay.text {
@@ -67,6 +56,19 @@ class ViewController: UIViewController {
         evaluate()
         appendSymbol(memorySymbol)
         brain.setOperand(memorySymbol)
+    }
+
+    private func appendSymbol(_ symbol: String) {
+        guard let text = mainDisplay.text else {
+            return
+        }
+        
+        if userIsTyping {
+            mainDisplay.text = text + symbol
+        } else {
+            mainDisplay.text = symbol
+            userIsTyping = true
+        }
     }
 
     var displayValue: Double {

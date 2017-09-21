@@ -159,8 +159,8 @@ struct CalculatorBrain {
                 switch lastElement {
                 case .operand(let operand):
                     accumulator.description = pendingBinaryOperations.last!.describe(with: operand.display)
-                case .variable(let variable):
-                    accumulator.description = pendingBinaryOperations.last!.describe(with: variable)
+                case .variable(let symbol):
+                    accumulator.description = pendingBinaryOperations.last!.describe(with: symbol)
                 default:
                     accumulator.description = pendingBinaryOperations.last!.describe(with: "")
                 }
@@ -173,8 +173,8 @@ struct CalculatorBrain {
                 setOperand(value: operand)
             case .operation(let operation):
                 setOperation(operation)
-            case .variable(let variable):
-                setOperand(symbol: variable)
+            case .variable(let symbol):
+                setOperand(symbol: symbol)
             }
         }
 
