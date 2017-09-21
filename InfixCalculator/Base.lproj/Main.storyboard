@@ -252,6 +252,9 @@
                                                 <variation key="heightClass=compact-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="28"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="setMemory" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="KCa-2j-Ooz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk3-Pl-loj" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
                                                 <rect key="frame" x="187.5" y="0.0" width="94" height="93.5"/>
@@ -263,6 +266,9 @@
                                                 <variation key="heightClass=compact-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="28"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="enterMemory" destination="gOQ-M2-Q7n" eventType="touchUpInside" id="jiM-B6-JEO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrZ-wL-8xQ" customClass="BorderedButton" customModule="InfixCalculator" customModuleProvider="target">
                                                 <rect key="frame" x="281.5" y="0.0" width="93.5" height="93.5"/>

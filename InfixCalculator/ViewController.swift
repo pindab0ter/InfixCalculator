@@ -1,18 +1,27 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let memorySymbol = "M"
+    
     @IBOutlet weak var mainDisplay: UILabel!
     @IBOutlet weak var descriptionDisplay: UILabel!
 
     private var userIsTyping = false
     private var brain = CalculatorBrain()
+    private var variables: Dictionary<String, Double> = [:]
 
     @IBAction func appendDigit(_ sender: UIButton) {
-        if let digit = sender.currentTitle, let text = mainDisplay.text {
+        if let digit = sender.currentTitle {
+            appendSymbol(digit)
+        }
+    }
+    
+    private func appendSymbol(_ symbol: String) {
+        if let text = mainDisplay.text {
             if userIsTyping {
-                mainDisplay.text = text + digit
+                mainDisplay.text = text + symbol
             } else {
-                mainDisplay.text = digit
+                mainDisplay.text = symbol
                 userIsTyping = true
             }
         }
@@ -39,10 +48,7 @@ class ViewController: UIViewController {
             brain.setOperation(symbol)
         }
 
-        if let result = brain.evaluate().result {
-            displayValue = result
-        }
-
+        evaluate()
         updateDescriptionDisplay()
     }
 
@@ -51,6 +57,16 @@ class ViewController: UIViewController {
         descriptionDisplay.text = " "
         userIsTyping = false
         brain.clear()
+    }
+
+    @IBAction func setMemory() {
+        variables[memorySymbol] = displayValue
+    }
+
+    @IBAction func enterMemory() {
+        evaluate()
+        appendSymbol(memorySymbol)
+        brain.setOperand(memorySymbol)
     }
 
     var displayValue: Double {
@@ -63,6 +79,12 @@ class ViewController: UIViewController {
         }
         set {
             mainDisplay.text = newValue.display
+        }
+    }
+
+    private func evaluate() {
+        if let result = brain.evaluate(using: variables).result {
+            displayValue = result
         }
     }
 
