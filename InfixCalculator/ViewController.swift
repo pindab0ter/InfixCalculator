@@ -10,6 +10,10 @@ class ViewController: UIViewController {
     private var brain = CalculatorBrain()
     private var variables: Dictionary<String, Double> = [:]
 
+    /*
+     *  Actions
+     */
+    
     @IBAction func appendDigit(_ sender: UIButton) {
         if let digit = sender.currentTitle {
             appendSymbol(digit)
@@ -45,11 +49,13 @@ class ViewController: UIViewController {
         mainDisplay.text = "0"
         descriptionDisplay.text = " "
         userIsTyping = false
+        variables = [:]
         brain.clear()
     }
 
     @IBAction func setMemory() {
         variables[memorySymbol] = displayValue
+        evaluate()
     }
 
     @IBAction func enterMemory() {
@@ -57,6 +63,10 @@ class ViewController: UIViewController {
         appendSymbol(memorySymbol)
         brain.setOperand(memorySymbol)
     }
+    
+    /*
+     *  Helper functions
+     */
 
     private func appendSymbol(_ symbol: String) {
         guard let text = mainDisplay.text else {
@@ -70,6 +80,12 @@ class ViewController: UIViewController {
             userIsTyping = true
         }
     }
+    
+    private func evaluate() {
+        if let result = brain.evaluate(using: variables).result {
+            displayValue = result
+        }
+    }
 
     var displayValue: Double {
         get {
@@ -81,12 +97,6 @@ class ViewController: UIViewController {
         }
         set {
             mainDisplay.text = newValue.display
-        }
-    }
-
-    private func evaluate() {
-        if let result = brain.evaluate(using: variables).result {
-            displayValue = result
         }
     }
 
