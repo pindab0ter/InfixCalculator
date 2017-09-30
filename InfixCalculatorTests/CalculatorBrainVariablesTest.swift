@@ -14,7 +14,7 @@ class CalculatorBrainVariablesTest: XCTestCase {
     func testUnsetVariable() {
         brain.setOperand(9)
         brain.setOperation("+")
-        brain.setOperand("M")
+        brain.setVariable("M")
         brain.setOperation("=")
         brain.setOperation("√")
 
@@ -30,7 +30,7 @@ class CalculatorBrainVariablesTest: XCTestCase {
     
         brain.setOperand(9)
         brain.setOperation("+")
-        brain.setOperand("M")
+        brain.setVariable("M")
         brain.setOperation("=")
         brain.setOperation("√")
         
@@ -46,7 +46,7 @@ class CalculatorBrainVariablesTest: XCTestCase {
         
         brain.setOperand(9)
         brain.setOperation("+")
-        brain.setOperand("M")
+        brain.setVariable("M")
         brain.setOperation("=")
         brain.setOperation("√")
         brain.setOperation("+")

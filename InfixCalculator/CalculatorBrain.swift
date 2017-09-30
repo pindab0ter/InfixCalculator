@@ -54,7 +54,7 @@ struct CalculatorBrain {
         elements.append(.operand(value))
     }
 
-    mutating func setOperand(_ symbol: String) {
+    mutating func setVariable(_ symbol: String) {
         elements.append(.variable(symbol))
     }
 
@@ -84,12 +84,12 @@ struct CalculatorBrain {
         }
         var accumulator: (value: Double?, description: String) = (nil, "")
 
-        func setOperand(value: Double) {
+        func setOperand(_ value: Double) {
             accumulator.value = value
             accumulator.description = value.display
         }
 
-        func setOperand(symbol: String) {
+        func setVariable(_ symbol: String) {
             accumulator.value = variables?[symbol] ?? 0
             accumulator.description = symbol
         }
@@ -169,12 +169,12 @@ struct CalculatorBrain {
 
         for element in elements {
             switch element {
-            case .operand(let operand):
-                setOperand(value: operand)
+            case .operand(let value):
+                setOperand(value)
+            case .variable(let symbol):
+                setVariable(symbol)
             case .operation(let operation):
                 setOperation(operation)
-            case .variable(let symbol):
-                setOperand(symbol: symbol)
             }
         }
 

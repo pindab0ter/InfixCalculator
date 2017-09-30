@@ -44,6 +44,10 @@ class ViewController: UIViewController {
         evaluate()
         updateDescriptionDisplay()
     }
+    
+    @IBAction func undo() {
+        brain.undo()
+    }
 
     @IBAction func clear(_ sender: UIButton) {
         mainDisplay.text = "0"
@@ -61,7 +65,8 @@ class ViewController: UIViewController {
     @IBAction func enterMemory() {
         evaluate()
         appendSymbol(memorySymbol)
-        brain.setOperand(memorySymbol)
+        brain.setVariable(memorySymbol)
+        userIsTyping = false
     }
     
     /*
