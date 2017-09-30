@@ -17,6 +17,21 @@ struct CalculatorBrain {
     private enum Precedence: Int {
         case min = 0, max
     }
+    
+    private struct PendingBinaryOperation {
+        let firstOperand: Double
+        let currentDescription: String
+        let operationFunction: (Double, Double) -> Double
+        let descriptionFunction: (String, String) -> String
+        
+        func perform(with secondOperand: Double) -> Double {
+            return operationFunction(firstOperand, secondOperand)
+        }
+        
+        func describe(with secondOperand: String) -> String {
+            return descriptionFunction(currentDescription, secondOperand)
+        }
+    }
 
     private var elements: [Element] = []
 
@@ -55,21 +70,6 @@ struct CalculatorBrain {
 
     mutating func clear() {
         elements = []
-    }
-
-    struct PendingBinaryOperation {
-        let firstOperand: Double
-        let currentDescription: String
-        let operationFunction: (Double, Double) -> Double
-        let descriptionFunction: (String, String) -> String
-
-        func perform(with secondOperand: Double) -> Double {
-            return operationFunction(firstOperand, secondOperand)
-        }
-
-        func describe(with secondOperand: String) -> String {
-            return descriptionFunction(currentDescription, secondOperand)
-        }
     }
 
     func evaluate(using variables: Dictionary<String, Double>? = nil) -> (result: Double?, isPending: Bool, description: String) {
@@ -181,9 +181,9 @@ struct CalculatorBrain {
         finaliseDescription()
 
         return (
-                result: accumulator.value,
-                isPending: operationPending,
-                description: accumulator.description
+            result: accumulator.value,
+            isPending: operationPending,
+            description: accumulator.description
         )
     }
 
