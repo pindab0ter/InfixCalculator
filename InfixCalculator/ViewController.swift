@@ -134,8 +134,8 @@ class ViewController: UIViewController {
     }
     
     private func updateMemoryDisplay() {
-        if let memory = variables["M"] {
-            memoryDisplay.text = "M: \(memory.display)"
+        if let memory = variables[memorySymbol] {
+            memoryDisplay.text = "\(memorySymbol): \(memory.display)"
         } else {
             memoryDisplay.text = ""
         }
