@@ -6,8 +6,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainDisplay: UILabel!
     @IBOutlet weak var historyDisplay: UILabel!
     @IBOutlet weak var memoryDisplay: UILabel!
+    @IBOutlet weak var clearButton: UIButton!
 
-    private var userIsTyping = false
+    private var userIsTyping = false {
+        willSet {
+            clearButton.setTitle(newValue ? "C" : "AC", for: .normal)
+        }
+    }
     private var brain = CalculatorBrain()
     private var variables: Dictionary<String, Double> = [:]
 
@@ -51,11 +56,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clear(_ sender: UIButton) {
-        mainDisplay.text = "0"
-        historyDisplay.text = " "
-        userIsTyping = false
-        variables = [:]
-        brain.clear()
+        if userIsTyping {
+            displayValue = 0
+            userIsTyping = false
+        } else {
+            variables = [:]
+            brain.clear()
+            evaluate()
+            updateSecondaryDisplays()
+        }
     }
 
     @IBAction func setMemory() {

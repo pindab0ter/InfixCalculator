@@ -302,7 +302,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="116" height="55.666666666666657"/>
                                                 <color key="backgroundColor" white="0.88" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
-                                                <state key="normal" title="C">
+                                                <state key="normal" title="AC">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <variation key="heightClass=compact-widthClass=compact">
@@ -666,6 +666,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="clearButton" destination="tgI-UT-96u" id="xfh-xZ-mPM"/>
                         <outlet property="historyDisplay" destination="3ub-6X-ajq" id="gTL-Mx-871"/>
                         <outlet property="mainDisplay" destination="hQo-VA-YTa" id="UgK-8z-VF7"/>
                         <outlet property="memoryDisplay" destination="gkb-76-KHO" id="lwO-fH-TqQ"/>
