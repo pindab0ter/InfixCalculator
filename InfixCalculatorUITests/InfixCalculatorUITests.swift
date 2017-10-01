@@ -23,7 +23,7 @@ class InfixCalculatorUITests: XCTestCase {
         app.buttons["+"].tap()
 
         expected = (7, "7 + …")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
 
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -32,7 +32,7 @@ class InfixCalculatorUITests: XCTestCase {
         app.buttons["9"].tap()
 
         expected = (9, "7 + …")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
 
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -41,7 +41,7 @@ class InfixCalculatorUITests: XCTestCase {
         app.buttons["="].tap()
 
         expected = (16, "7 + 9 =")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
 
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -52,7 +52,7 @@ class InfixCalculatorUITests: XCTestCase {
         XCUIDevice.shared.orientation = .portrait
 
         expected = (4, "√(7 + 9) =")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
 
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -63,7 +63,7 @@ class InfixCalculatorUITests: XCTestCase {
         app.buttons["="].tap()
 
         expected = (6, "√(7 + 9) + 2 =")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
 
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -71,7 +71,7 @@ class InfixCalculatorUITests: XCTestCase {
         app.buttons["C"].tap()
 
         expected = (0, " ")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
 
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -85,7 +85,7 @@ class InfixCalculatorUITests: XCTestCase {
         app.buttons["3"].tap()
 
         expected = (73, "5 + 6 =")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
 
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
@@ -101,7 +101,7 @@ class InfixCalculatorUITests: XCTestCase {
         app.buttons["="].tap()
 
         expected = (12.5663706143592, "4 × π =")
-        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["descriptionDisplay"].label)
+        actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
         
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)

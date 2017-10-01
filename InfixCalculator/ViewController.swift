@@ -4,7 +4,8 @@ class ViewController: UIViewController {
     private let memorySymbol = "M"
     
     @IBOutlet weak var mainDisplay: UILabel!
-    @IBOutlet weak var descriptionDisplay: UILabel!
+    @IBOutlet weak var historyDisplay: UILabel!
+    @IBOutlet weak var memoryDisplay: UILabel!
 
     private var userIsTyping = false
     private var brain = CalculatorBrain()
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
         }
 
         evaluate()
-        updateDescriptionDisplay()
+        updateSecondaryDisplays()
     }
     
     @IBAction func undo() {
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
 
     @IBAction func clear(_ sender: UIButton) {
         mainDisplay.text = "0"
-        descriptionDisplay.text = " "
+        historyDisplay.text = " "
         userIsTyping = false
         variables = [:]
         brain.clear()
@@ -60,12 +61,15 @@ class ViewController: UIViewController {
     @IBAction func setMemory() {
         variables[memorySymbol] = displayValue
         evaluate()
+        updateSecondaryDisplays()
+        userIsTyping = false
     }
 
     @IBAction func enterMemory() {
         evaluate()
         appendSymbol(memorySymbol)
         brain.setVariable(memorySymbol)
+        updateSecondaryDisplays()
         userIsTyping = false
     }
     
@@ -92,7 +96,7 @@ class ViewController: UIViewController {
         }
     }
 
-    var displayValue: Double {
+    private var displayValue: Double {
         get {
             if let mainDisplayText = mainDisplay.text, let currentValue = Double(mainDisplayText) {
                 return currentValue
@@ -105,10 +109,10 @@ class ViewController: UIViewController {
         }
     }
 
-    func updateDescriptionDisplay() {
+    private func updateHistoryDisplay() {
         let (_, isPending, description) = brain.evaluate()
         var newDescription: String
-    
+        
         if description == "" {
             newDescription = " "
         } else if isPending {
@@ -116,7 +120,20 @@ class ViewController: UIViewController {
         } else {
             newDescription = description + " ="
         }
-
-        descriptionDisplay.text = newDescription
+        
+        historyDisplay.text = newDescription
+    }
+    
+    private func updateMemoryDisplay() {
+        if let memory = variables["M"] {
+            memoryDisplay.text = "M: \(memory.display)"
+        } else {
+            memoryDisplay.text = ""
+        }
+    }
+    
+    private func updateSecondaryDisplays() {
+        updateHistoryDisplay()
+        updateMemoryDisplay()
     }
 }

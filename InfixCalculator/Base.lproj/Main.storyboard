@@ -34,8 +34,8 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkb-76-KHO" userLabel="Memory Display">
-                                <rect key="frame" x="56" y="60.333333333333343" width="694.66666666666663" height="28.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="gkb-76-KHO" userLabel="Memory Display">
+                                <rect key="frame" x="56" y="60.333333333333343" width="5.3333333333333357" height="28.666666666666657"/>
                                 <accessibility key="accessibilityConfiguration" identifier="descriptionDisplay"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <color key="textColor" red="0.65733506939999997" green="0.65733506939999997" blue="0.65733506939999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,7 +45,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ub-6X-ajq" userLabel="History Display">
-                                <rect key="frame" x="750.66666666666652" y="60.333333333333343" width="5.3333333333333712" height="28.666666666666657"/>
+                                <rect key="frame" x="69.333333333333314" y="60.333333333333343" width="686.66666666666674" height="28.666666666666657"/>
                                 <accessibility key="accessibilityConfiguration" identifier="descriptionDisplay"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <color key="textColor" red="0.65733506944444442" green="0.65733506944444442" blue="0.65733506944444442" alpha="1" colorSpace="calibratedRGB"/>
@@ -645,7 +645,7 @@
                             <constraint firstItem="FP3-Cm-krC" firstAttribute="bottom" secondItem="HWO-Pe-68p" secondAttribute="bottom" id="X7H-jV-Fuc"/>
                             <constraint firstItem="gkb-76-KHO" firstAttribute="height" secondItem="3ub-6X-ajq" secondAttribute="height" id="bhM-c5-7dK"/>
                             <constraint firstItem="gkb-76-KHO" firstAttribute="leadingMargin" secondItem="HWO-Pe-68p" secondAttribute="leadingMargin" id="eA4-fp-wS4"/>
-                            <constraint firstItem="3ub-6X-ajq" firstAttribute="leading" secondItem="gkb-76-KHO" secondAttribute="trailing" id="oWU-4N-6eh"/>
+                            <constraint firstItem="3ub-6X-ajq" firstAttribute="leading" secondItem="gkb-76-KHO" secondAttribute="trailing" constant="8" symbolic="YES" id="oWU-4N-6eh"/>
                             <constraint firstItem="hQo-VA-YTa" firstAttribute="bottom" secondItem="3ub-6X-ajq" secondAttribute="top" id="pqo-4a-L8C"/>
                             <constraint firstItem="FP3-Cm-krC" firstAttribute="left" secondItem="HWO-Pe-68p" secondAttribute="left" id="rB2-s8-3ku"/>
                             <constraint firstItem="hQo-VA-YTa" firstAttribute="leadingMargin" secondItem="HWO-Pe-68p" secondAttribute="leadingMargin" id="ttc-0X-zMY"/>
@@ -666,8 +666,9 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="descriptionDisplay" destination="3ub-6X-ajq" id="gTL-Mx-871"/>
+                        <outlet property="historyDisplay" destination="3ub-6X-ajq" id="gTL-Mx-871"/>
                         <outlet property="mainDisplay" destination="hQo-VA-YTa" id="UgK-8z-VF7"/>
+                        <outlet property="memoryDisplay" destination="gkb-76-KHO" id="lwO-fH-TqQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kY0-RU-ZUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
