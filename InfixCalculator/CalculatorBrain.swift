@@ -67,6 +67,11 @@ struct CalculatorBrain {
 
         elements.append(.operation(operation!))
     }
+    
+    mutating func undo() {
+        // Remove last element from Elements
+        // How to deal with "="?
+    }
 
     mutating func clear() {
         elements = []

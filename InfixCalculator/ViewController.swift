@@ -7,10 +7,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var historyDisplay: UILabel!
     @IBOutlet weak var memoryDisplay: UILabel!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
 
     private var userIsTyping = false {
         willSet {
             clearButton.setTitle(newValue ? "C" : "AC", for: .normal)
+            backButton.setTitle(newValue ? "←" : "Undo", for: .normal)
         }
     }
     private var brain = CalculatorBrain()
@@ -51,7 +53,30 @@ class ViewController: UIViewController {
         updateSecondaryDisplays()
     }
     
-    @IBAction func undo() {
+    @IBAction func backspaceUndo() {
+        if userIsTyping {
+           backspace()
+        } else {
+            undo()
+        }
+    }
+    
+    private func backspace() {
+        guard var text = mainDisplay.text, !text.isEmpty else {
+            return
+        }
+        
+        text.removeLast()
+        
+        if !text.isEmpty {
+            mainDisplay.text = text
+        } else {
+            displayValue = 0
+            userIsTyping = false
+        }
+    }
+    
+    private func undo() {
         brain.undo()
     }
 
