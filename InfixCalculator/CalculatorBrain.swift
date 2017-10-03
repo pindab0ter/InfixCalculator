@@ -49,12 +49,27 @@ struct CalculatorBrain {
         "=": Operation.equals
     ]
     // @formatter:on
+    
+    private mutating func removeLastElementIfOperandOrVariable() {
+        guard !elements.isEmpty, let lastElement = elements.last else {
+            return
+        }
+        
+        switch lastElement {
+        case .operand, .variable:
+            elements.removeLast()
+        default:
+            break
+        }
+    }
 
     mutating func setOperand(_ value: Double) {
+        removeLastElementIfOperandOrVariable()
         elements.append(.operand(value))
     }
 
     mutating func setVariable(_ symbol: String) {
+        removeLastElementIfOperandOrVariable()
         elements.append(.variable(symbol))
     }
 
@@ -62,15 +77,18 @@ struct CalculatorBrain {
         let operation = operations[symbol]
 
         guard operation != nil else {
-            return // TODO Throw error
+            return
         }
 
         elements.append(.operation(operation!))
     }
     
     mutating func undo() {
-        // Remove last element from Elements
-        // How to deal with "="?
+        guard !elements.isEmpty else {
+            return
+        }
+        
+        elements.removeLast()
     }
 
     mutating func clear() {

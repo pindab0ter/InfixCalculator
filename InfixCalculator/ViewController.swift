@@ -60,25 +60,6 @@ class ViewController: UIViewController {
             undo()
         }
     }
-    
-    private func backspace() {
-        guard var text = mainDisplay.text, !text.isEmpty else {
-            return
-        }
-        
-        text.removeLast()
-        
-        if !text.isEmpty {
-            mainDisplay.text = text
-        } else {
-            displayValue = 0
-            userIsTyping = false
-        }
-    }
-    
-    private func undo() {
-        brain.undo()
-    }
 
     @IBAction func clear(_ sender: UIButton) {
         if userIsTyping {
@@ -124,6 +105,27 @@ class ViewController: UIViewController {
             mainDisplay.text = symbol
             userIsTyping = true
         }
+    }
+
+    private func backspace() {
+        guard var text = mainDisplay.text, !text.isEmpty else {
+            return
+        }
+        
+        text.removeLast()
+        
+        if !text.isEmpty {
+            mainDisplay.text = text
+        } else {
+            displayValue = 0
+            userIsTyping = false
+        }
+    }
+    
+    private func undo() {
+        brain.undo()
+        evaluate()
+        updateHistoryDisplay()
     }
     
     private func evaluate() {
