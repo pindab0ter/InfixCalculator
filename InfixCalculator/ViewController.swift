@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         }
 
         evaluate()
-        updateSecondaryDisplays()
+        updateHistoryDisplay()
     }
     
     @IBAction func backspaceUndo() {
@@ -88,14 +88,16 @@ class ViewController: UIViewController {
             variables = [:]
             brain.clear()
             evaluate()
-            updateSecondaryDisplays()
+            updateMemoryDisplay()
+            updateHistoryDisplay()
         }
     }
 
     @IBAction func setMemory() {
         variables[memorySymbol] = displayValue
         evaluate()
-        updateSecondaryDisplays()
+        updateMemoryDisplay()
+        updateHistoryDisplay()
         userIsTyping = false
     }
 
@@ -103,7 +105,7 @@ class ViewController: UIViewController {
         evaluate()
         appendSymbol(memorySymbol)
         brain.setVariable(memorySymbol)
-        updateSecondaryDisplays()
+        updateHistoryDisplay()
         userIsTyping = false
     }
     
@@ -164,10 +166,5 @@ class ViewController: UIViewController {
         } else {
             memoryDisplay.text = ""
         }
-    }
-    
-    private func updateSecondaryDisplays() {
-        updateHistoryDisplay()
-        updateMemoryDisplay()
     }
 }
