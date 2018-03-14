@@ -62,8 +62,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clear(_ sender: UIButton) {
+        displayValue = 0
         if userIsTyping {
-            displayValue = 0
             userIsTyping = false
         } else {
             variables = [:]

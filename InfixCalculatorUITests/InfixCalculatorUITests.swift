@@ -68,7 +68,7 @@ class InfixCalculatorUITests: XCTestCase {
         XCTAssertEqual(actual.result, expected.result, accuracy: accuracy)
         XCTAssertEqual(actual.description, expected.description)
 
-        app.buttons["C"].tap()
+        app.buttons["AC"].tap()
 
         expected = (0, " ")
         actual = (Double(app.staticTexts["resultDisplay"].label)!, app.staticTexts["historyDisplay"].label)
@@ -91,6 +91,7 @@ class InfixCalculatorUITests: XCTestCase {
         XCTAssertEqual(actual.description, expected.description)
 
         app.buttons["C"].tap()
+        app.buttons["AC"].tap()
         
         // Task 7k
         app.buttons["4"].tap()
