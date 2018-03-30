@@ -16,11 +16,8 @@ extension UIColor {
 }
 
 class BorderedButton: UIButton {
-    // TODO: One central place for all color definitions?
-    // TODO: Set custom highlighted text color (title color?)
     let borderColor: CGColor = UIColor(white: 0.12, alpha: 1.0).cgColor
     let borderWidth: CGFloat = 0.25
-    // TODO: Use system constant for fade duration
     let fadeDuration: CFTimeInterval = 0.2
     var normalBackgroundColor: CGColor? = nil
     var highlightedBackgroundColor: CGColor? = nil

@@ -17,17 +17,17 @@ struct CalculatorBrain {
     private enum Precedence: Int {
         case min = 0, max
     }
-    
+
     private struct PendingBinaryOperation {
         let firstOperand: Double
         let currentDescription: String
         let operationFunction: (Double, Double) -> Double
         let descriptionFunction: (String, String) -> String
-        
+
         func perform(with secondOperand: Double) -> Double {
             return operationFunction(firstOperand, secondOperand)
         }
-        
+
         func describe(with secondOperand: String) -> String {
             return descriptionFunction(currentDescription, secondOperand)
         }
@@ -49,12 +49,12 @@ struct CalculatorBrain {
         "=": Operation.equals
     ]
     // @formatter:on
-    
+
     private mutating func removeLastElementIfOperandOrVariable() {
         guard !elements.isEmpty, let lastElement = elements.last else {
             return
         }
-        
+
         switch lastElement {
         case .operand, .variable:
             elements.removeLast()
@@ -82,12 +82,12 @@ struct CalculatorBrain {
 
         elements.append(.operation(operation!))
     }
-    
+
     mutating func undo() {
         guard !elements.isEmpty else {
             return
         }
-        
+
         elements.removeLast()
     }
 
@@ -99,7 +99,7 @@ struct CalculatorBrain {
         guard !elements.isEmpty else {
             return (nil, false, "")
         }
-        
+
         var currentPrecedence = Precedence.max
         var pendingBinaryOperations: [PendingBinaryOperation] = []
         var operationPending: Bool {
@@ -129,32 +129,30 @@ struct CalculatorBrain {
                 guard accumulator.value != nil else {
                     return
                 }
-                
+
                 if operationPending, newPrecedence.rawValue > currentPrecedence.rawValue {
-                    pendingBinaryOperations.append(
-                        PendingBinaryOperation(
+                    pendingBinaryOperations.append(PendingBinaryOperation(
                             firstOperand: accumulator.value!,
                             currentDescription: accumulator.description,
                             operationFunction: operationFunction,
                             descriptionFunction: descriptionFunction
-                        )
-                    )
+                    ))
                 } else {
                     performPendingBinaryOperations()
-                    
+
                     if currentPrecedence.rawValue < newPrecedence.rawValue {
                         accumulator.description = "(\(accumulator.description))"
                     }
-                    
+
                     pendingBinaryOperations = [PendingBinaryOperation(
-                        firstOperand: accumulator.value!,
-                        currentDescription: accumulator.description,
-                        operationFunction: operationFunction,
-                        descriptionFunction: descriptionFunction
+                            firstOperand: accumulator.value!,
+                            currentDescription: accumulator.description,
+                            operationFunction: operationFunction,
+                            descriptionFunction: descriptionFunction
                     )]
                 }
                 currentPrecedence = newPrecedence
-                
+
             case .equals:
                 performPendingBinaryOperations()
             }
@@ -164,12 +162,12 @@ struct CalculatorBrain {
             guard operationPending, accumulator.value != nil else {
                 return
             }
-            
+
             for operation in pendingBinaryOperations.reversed() {
                 accumulator.value = operation.perform(with: accumulator.value!)
                 accumulator.description = operation.describe(with: accumulator.description)
             }
-            
+
             pendingBinaryOperations = []
         }
 

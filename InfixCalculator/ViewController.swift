@@ -2,7 +2,7 @@ import UIKit
 
 class ViewController: UIViewController {
     private let memorySymbol = "M"
-    
+
     @IBOutlet weak var mainDisplay: UILabel!
     @IBOutlet weak var historyDisplay: UILabel!
     @IBOutlet weak var memoryDisplay: UILabel!
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     /*
      *  Actions
      */
-    
+
     @IBAction func appendDigit(_ sender: UIButton) {
         if let digit = sender.currentTitle {
             appendSymbol(digit)
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
         evaluate()
         updateHistoryDisplay()
     }
-    
+
     @IBAction func backspaceUndo() {
         if userIsTyping {
-           backspace()
+            backspace()
         } else {
             undo()
         }
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
         updateHistoryDisplay()
         userIsTyping = false
     }
-    
+
     /*
      *  Helper functions
      */
@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         guard let text = mainDisplay.text else {
             return
         }
-        
+
         if userIsTyping {
             mainDisplay.text = text + symbol
         } else {
@@ -111,9 +111,9 @@ class ViewController: UIViewController {
         guard var text = mainDisplay.text, !text.isEmpty else {
             return
         }
-        
+
         text.removeLast()
-        
+
         if !text.isEmpty {
             mainDisplay.text = text
         } else {
@@ -121,13 +121,13 @@ class ViewController: UIViewController {
             userIsTyping = false
         }
     }
-    
+
     private func undo() {
         brain.undo()
         evaluate()
         updateHistoryDisplay()
     }
-    
+
     private func evaluate() {
         if let result = brain.evaluate(using: variables).result {
             displayValue = result
@@ -150,7 +150,7 @@ class ViewController: UIViewController {
     private func updateHistoryDisplay() {
         let (_, isPending, description) = brain.evaluate()
         var newDescription: String
-        
+
         if description == "" {
             newDescription = " "
         } else if isPending {
@@ -158,10 +158,10 @@ class ViewController: UIViewController {
         } else {
             newDescription = description + " ="
         }
-        
+
         historyDisplay.text = newDescription
     }
-    
+
     private func updateMemoryDisplay() {
         if let memory = variables[memorySymbol] {
             memoryDisplay.text = "\(memorySymbol): \(memory.display)"
